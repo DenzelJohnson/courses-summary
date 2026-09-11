@@ -78,13 +78,13 @@ Create decision/task templates containing: title/status/date, objective or decis
 Run:
 
 ```bash
-for path in AGENTS.md CLAUDE.md .cursor/rules/ai-project-memory.mdc \
+for file_path in AGENTS.md CLAUDE.md .cursor/rules/ai-project-memory.mdc \
   docs/ai/INDEX.md docs/ai/current-state.md docs/ai/authority.md docs/ai/conflicts.md \
   docs/ai/architecture.md docs/ai/conventions.md docs/ai/source-register.md docs/ai/tooling.md \
   docs/ai/decisions/README.md docs/ai/decisions/TEMPLATE.md docs/ai/tasks/README.md \
   docs/ai/tasks/ACTIVE.md docs/ai/tasks/TEMPLATE.md \
   docs/ai/tasks/2026-09-11-bootstrap-courses-summary.md \
-  docs/ai/runbooks/session-checkpoint.md; do test -s "$path" || exit 1; done
+  docs/ai/runbooks/session-checkpoint.md; do test -s "$file_path" || exit 1; done
 rg -n "2026-09-11-bootstrap-courses-summary|current-state|authority|conflicts" docs/ai/INDEX.md docs/ai/tasks/ACTIVE.md
 ```
 

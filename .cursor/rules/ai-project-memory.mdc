@@ -1,0 +1,6 @@
+---
+description: Load the repository's tool-neutral operating memory
+alwaysApply: true
+---
+
+Read and follow `AGENTS.md`, then load `docs/ai/INDEX.md`. Do not recreate project state in editor-only chat or rules.
