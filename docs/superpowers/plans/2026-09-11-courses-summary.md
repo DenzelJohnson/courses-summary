@@ -115,6 +115,7 @@ git commit -m "docs: establish portable project memory"
   "name": "courses-summary",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
