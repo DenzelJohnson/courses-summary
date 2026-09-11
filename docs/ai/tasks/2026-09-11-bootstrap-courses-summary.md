@@ -1,6 +1,6 @@
 # Task: Bootstrap the Courses summary
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-09-11
 - Updated: 2026-09-11
 - Worktree: `.worktrees/courses-summary`
@@ -33,17 +33,25 @@ Included: neutral/provider instructions, all required `docs/ai/` files, npm/Next
 
 ## Current Checkpoint
 
-The isolated worktree exists and memory files are being created. Application implementation has not begun. Intended files are enumerated in the implementation plan. No external state was changed.
+All planned project-memory and application files are implemented and verified. Browser verification covered desktop layout, link-driven selection changes, invalid-value fallback, and a 390 px mobile viewport without horizontal overflow. The local development server is running at `http://127.0.0.1:3001/` in execution session `38869`; no remote or account state changed.
 
 ## Evidence
 
 - Design commit: `753e39d`
 - Plan commit: `8e83f69`
 - Worktree foundation commit: `3cd94ab`
+- Memory commit: `30cf511`
+- Toolchain commit: `b5da1e3`
+- Navigation contract commit: `174a051`
+- Header commit: `967df62`
+- Page commit: `47821d4`
 - Repository was empty before the design work.
+- Final `npm test`: 2 test files and 5 tests passed on 2026-09-11.
+- Final `npm run build`: Next.js 16.3.5 compiled, type-checked, and generated routes successfully on 2026-09-11.
+- Final `git diff --check`: no whitespace errors on 2026-09-11.
 
 ## Risks and Handoff
 
-No known blocking risk. Exact next action: create the package and toolchain configuration, then run `npm install next@latest react@latest react-dom@latest`.
+No known blocking risk. Exact resume action: create a new task file and add it to `docs/ai/tasks/ACTIVE.md` before adding content to any course section.
 
 Information only in chat: none

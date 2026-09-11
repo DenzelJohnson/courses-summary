@@ -532,12 +532,10 @@ Update `scope.md` and the AI memory with resolved package/tool versions, final m
 and build evidence, and the exact course/section contract. Record that URL selection feeds the page,
 header, active states, and link generation; no automation or external service consumes it.
 
-- [ ] **Step 2: Mark the bootstrap task complete**
+- [ ] **Step 2: Prepare the bootstrap completion checkpoint**
 
-Move its status to `COMPLETE`, record changed files and commits, add the final verification output,
-and set the exact resume action to: create a new task file and registry entry before adding content
-to any course section. Remove it from `docs/ai/tasks/ACTIVE.md` so the active registry explicitly
-states that there are no active or blocked tasks.
+Keep its status `ACTIVE`, record changed files and commits, and note that final fresh verification
+is the remaining action.
 
 - [ ] **Step 3: Run the clean-room finish check**
 
@@ -551,17 +549,24 @@ rg -n "no active|No active|COMPLETE|exact resume|Exact resume" docs/ai/tasks/ACT
 git status --short
 ```
 
-Expected: tests and build exit 0, `git diff --check` emits nothing, the completed task and resume
-state are discoverable, and only the intended final documentation changes remain uncommitted.
+Expected: tests and build exit 0, `git diff --check` emits nothing, the task and resume state are
+discoverable, and only the intended final documentation changes remain uncommitted.
 
-- [ ] **Step 4: Commit the verified checkpoint**
+- [ ] **Step 4: Mark the bootstrap task complete**
+
+After successful verification, move its status to `COMPLETE`, record the final evidence, and set
+the exact resume action to: create a new task file and registry entry before adding content to any
+course section. Remove it from `docs/ai/tasks/ACTIVE.md` so the active registry explicitly states
+that there are no active or blocked tasks.
+
+- [ ] **Step 5: Commit the verified checkpoint**
 
 ```bash
 git add scope.md docs/ai
 git commit -m "docs: complete courses summary bootstrap"
 ```
 
-- [ ] **Step 5: Confirm final repository state**
+- [ ] **Step 6: Confirm final repository state**
 
 Run:
 

@@ -13,15 +13,23 @@ contain Syllabus, Lectures, and Notes sections. Section content is intentionally
 
 ## 2. Tech Stack
 
-- Language/runtime: TypeScript on Node.js
-- Framework: Next.js with the App Router and React
+- Language/runtime: TypeScript 7.0.2 on Node.js
+- Framework: Next.js 16.3.5 with the App Router and React 19.3.0
 - Styling: CSS maintained in the repository
 - Hosting/deploy target: Not selected
-- Testing and package-manager details: To be selected in the implementation plan
+- Testing/package management: Vitest 5.0.0, Testing Library, and npm with `package-lock.json`
 
 ## 3. Code Modules
 
-No application modules exist yet. The approved design and implementation plan will define them.
+| Module/path | Responsibility | Reads | Writes |
+|---|---|---|---|
+| `src/lib/navigation.ts` | Course/section values, validation, labels, and URLs | Search parameters | Resolved selection and link URLs |
+| `src/app/page.tsx` | Resolve selection and compose the route | Search parameters and navigation contract | Rendered page |
+| `src/components/course-header.tsx` | Compose identity and both navigation levels | Resolved selection and navigation contract | Tab-link props |
+| `src/components/tab-navigation.tsx` | Render accessible navigation links | Tab-link props | Semantic navigation markup |
+| `src/components/empty-section.tsx` | Stable blank content landmark | None | Empty `main` landmark |
+| `src/app/globals.css` | Desktop/mobile visual hierarchy | Component class names and active attributes | Presentation |
+| `src/**/*.test.ts(x)` | Verify navigation and header behavior | Public module/component behavior | Test evidence |
 
 ## 4. Databases
 
@@ -42,11 +50,15 @@ identified an external automation that reads or writes project contracts.
 
 ## 8. Dependency Map
 
-- Course/section navigation contract -> will be produced by the page configuration and consumed
-  by the primary tabs, secondary tabs, URL state, and blank content panel.
-- Project operating memory -> will be governed by `AGENTS.md` and indexed by `docs/ai/INDEX.md`.
+- Course/section navigation contract -> produced by `src/lib/navigation.ts`; consumed by
+  `src/app/page.tsx`, `src/components/course-header.tsx`, both tab rows, and automated tests.
+- Search parameter selection -> produced by the browser URL; consumed by `resolveSelection`; the
+  resolved values produce active states and all navigation URLs.
+- Component class/attribute names -> produced by React components; consumed by `globals.css`.
+- Project operating memory -> governed by `AGENTS.md` and indexed by `docs/ai/INDEX.md`.
+- No automation or external service reads or writes these contracts.
 
 ## 9. Known Fragilities / UNVERIFIED
 
-- Deployment target and hosting conventions are not yet selected.
+- Deployment target and hosting conventions are not selected because deployment is out of scope.
 - No historical code or external project memory was present to reconcile as of 2026-09-11.
