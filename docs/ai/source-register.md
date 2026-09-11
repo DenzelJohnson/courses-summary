@@ -12,3 +12,6 @@ _Updated: 2026-09-11_
 | Git commits `753e39d`, `8e83f69`, `3cd94ab` | Initial design, plan, and ignore setup | Verified history |
 | Git commits `30cf511`, `b5da1e3`, `174a051`, `967df62`, `47821d4` | Memory, toolchain, navigation, header, and page implementation | Verified history |
 | Git commits `5d988ff`, `a4eaeef` | Completed checkpoint and merged-checkout workspace-root fix | Verified history on `master` |
+| `docs/superpowers/specs/2026-09-11-2z03-grade-calculator-design.md` | Approved calculator, persistence, and deployment behavior | Awaiting written-spec review |
+| User-supplied grading screenshot from 2026-09-11 | 2Z03 weights and missed-work rules | External authoritative requirement; not copied into repository |
+| Official Next.js static export and GitHub Pages workflow guides | Deployment contracts | Verified online 2026-09-11 |

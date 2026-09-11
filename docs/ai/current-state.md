@@ -15,7 +15,7 @@ The completed Courses summary is merged into `master`; the temporary `codex/cour
 
 ## Backlog
 
-There is no active backlog. Before adding course content or another feature, create and register a new task. Course content, persistence, authentication, search, editing, and deployment remain excluded from the completed bootstrap.
+The active task adds a persisted grade calculator only to 2Z03 Syllabus and publishes the static export to GitHub Pages. Other course content remains excluded.
 
 ## Verification So Far
 

@@ -7,16 +7,17 @@ _Last updated: 2026-09-11 by Codex_
 
 ## 1. Overview
 
-This repository will contain a Next.js course-summary interface and its tool-neutral project
-memory. The main page will expose course navigation for 2Z03, 2GA3, and 3BB4; each course will
-contain Syllabus, Lectures, and Notes sections. Section content is intentionally empty initially.
+This repository contains a Next.js course-summary interface and its tool-neutral project memory.
+The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
+Lectures, and Notes. The 2Z03 Syllabus will contain a persisted grade calculator, while the other
+eight content selections remain empty.
 
 ## 2. Tech Stack
 
 - Language/runtime: TypeScript 7.0.2 on Node.js
 - Framework: Next.js 16.3.5 with the App Router and React 19.3.0
 - Styling: CSS maintained in the repository
-- Hosting/deploy target: Not selected
+- Hosting/deploy target: GitHub Pages static export through GitHub Actions
 - Testing/package management: Vitest 5.0.0, Testing Library, and npm with `package-lock.json`
 
 ## 3. Code Modules
@@ -31,10 +32,14 @@ contain Syllabus, Lectures, and Notes sections. Section content is intentionally
 | `src/app/globals.css` | Desktop/mobile visual hierarchy | Component class names and active attributes | Presentation |
 | `src/**/*.test.ts(x)` | Verify navigation and header behavior | Public module/component behavior | Test evidence |
 | `next.config.ts` | Anchor Next.js workspace discovery to this repository | Current working directory | Turbopack root configuration |
+| `src/lib/grade-calculator.ts` | Validate persisted state and calculate current/Scheme I/Scheme II marks | Versioned grade state | Pure calculation result |
+| `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
+| `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
+| `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
 
-None.
+None. Browser `localStorage` is client-side persistence, not a project database.
 
 ## 5. Spreadsheets
 
@@ -42,12 +47,12 @@ None.
 
 ## 6. External Services, Web Apps, and Accounts
 
-None.
+GitHub will host the repository and Pages site. Repository identity and visibility are pending user approval. Browser `localStorage` stores only grade inputs on the current device under `courses-summary:2z03:grades:v1`.
 
 ## 7. Automations
 
-No project automations or scheduled tasks were found in the empty repository. The user has not
-identified an external automation that reads or writes project contracts.
+The planned GitHub Actions Pages workflow will run on pushes to `master` and manual dispatch. No
+other project automation or scheduled task is known.
 
 ## 8. Dependency Map
 
@@ -59,8 +64,13 @@ identified an external automation that reads or writes project contracts.
 - Turbopack workspace root -> produced by `next.config.ts`; consumed by `next dev` and `next build` so unrelated parent lockfiles are ignored.
 - Project operating memory -> governed by `AGENTS.md` and indexed by `docs/ai/INDEX.md`.
 - No automation or external service reads or writes these contracts.
+- Grade-state contract -> produced by calculator inputs and `localStorage`; consumed by the pure
+  grade engine and result display. No server receives the marks.
+- Static base path -> produced by the GitHub Actions environment and Next.js configuration;
+  consumed by exported assets and internal navigation links.
+- `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.
 
 ## 9. Known Fragilities / UNVERIFIED
 
-- Deployment target and hosting conventions are not selected because deployment is out of scope.
+- GitHub repository name, owner, visibility, and final Pages URL remain `UNVERIFIED` until publication.
 - No historical code or external project memory was present to reconcile as of 2026-09-11.
