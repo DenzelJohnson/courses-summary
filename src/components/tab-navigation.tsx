@@ -16,16 +16,17 @@ export function TabNavigation<Value extends string>({
       <ul className="tab-list">
         {items.map((item) => (
           <li key={item.value}>
-            <a
+            <Link
               className="tab-link"
               href={item.href}
               aria-current={item.value === activeValue ? "page" : undefined}
             >
               {item.label}
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
     </nav>
   );
 }
+import Link from "next/link";

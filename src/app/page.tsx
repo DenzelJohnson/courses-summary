@@ -1,16 +1,10 @@
-import { CourseHeader } from "@/components/course-header";
-import { EmptySection } from "@/components/empty-section";
-import { resolveSelection, type SearchValues } from "@/lib/navigation";
+import { Suspense } from "react";
+import { CourseShell } from "@/components/course-shell";
 
-type HomePageProps = { searchParams: Promise<SearchValues> };
-
-export default async function HomePage({ searchParams }: HomePageProps) {
-  const selection = resolveSelection(await searchParams);
-
+export default function HomePage() {
   return (
-    <div className="page-shell">
-      <CourseHeader {...selection} />
-      <EmptySection />
-    </div>
+    <Suspense fallback={null}>
+      <CourseShell />
+    </Suspense>
   );
 }
