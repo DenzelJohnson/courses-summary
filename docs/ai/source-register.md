@@ -11,3 +11,4 @@ _Updated: 2026-09-11_
 | User-supplied screenshots from 2026-09-11 | Visual hierarchy reference | External reference; not copied into repository |
 | Git commits `753e39d`, `8e83f69`, `3cd94ab` | Initial design, plan, and ignore setup | Verified history |
 | Git commits `30cf511`, `b5da1e3`, `174a051`, `967df62`, `47821d4` | Memory, toolchain, navigation, header, and page implementation | Verified history |
+| Git commits `5d988ff`, `a4eaeef` | Completed checkpoint and merged-checkout workspace-root fix | Verified history on `master` |
