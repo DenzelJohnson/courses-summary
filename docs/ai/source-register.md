@@ -16,3 +16,5 @@ _Updated: 2026-09-11_
 | User-supplied grading screenshot from 2026-09-11 | 2Z03 weights and missed-work rules | External authoritative requirement; not copied into repository |
 | Official Next.js static export and GitHub Pages workflow guides | Deployment contracts | Verified online 2026-09-11 |
 | Git commits `043d330`, `da599a1`, `ff892fa`, `71244ad`, `764a65b` | Grade engine, persistence, calculator UI, static navigation, and Pages workflow | Verified on feature branch |
+| GitHub repository `DenzelJohnson/courses-summary` | Public source repository | Published 2026-09-11 |
+| GitHub Pages workflow run `34659436007` | Static site deployment | Succeeded 2026-09-11 |

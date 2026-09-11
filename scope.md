@@ -33,6 +33,7 @@ eight content selections remain empty.
 | `src/app/globals.css` | Desktop/mobile visual hierarchy | Component class names and active attributes | Presentation |
 | `src/**/*.test.ts(x)` | Verify navigation and header behavior | Public module/component behavior | Test evidence |
 | `next.config.ts` | Configure workspace discovery and static export | Current working directory and deployment base path | Turbopack root and exported site configuration |
+| `vitest.config.ts` | Configure project test discovery | Vitest defaults and repository layout | Root-only test suite, excluding nested worktrees |
 | `src/lib/grade-calculator.ts` | Validate persisted state and calculate current/Scheme I/Scheme II marks | Versioned grade state | Pure calculation result |
 | `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
 | `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
@@ -48,7 +49,9 @@ None.
 
 ## 6. External Services, Web Apps, and Accounts
 
-GitHub will host the repository and Pages site. Repository identity and visibility are pending user approval. Browser `localStorage` stores only grade inputs on the current device under `courses-summary:2z03:grades:v1`.
+GitHub hosts the public `DenzelJohnson/courses-summary` repository and Pages site at
+`https://denzeljohnson.github.io/courses-summary/`. Browser `localStorage` stores only grade inputs
+on the current device under `courses-summary:2z03:grades:v1`.
 
 ## 7. Automations
 
@@ -70,8 +73,11 @@ other project automation or scheduled task is known.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
 - `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.
+- Vitest exclusion contract -> produced by `vitest.config.ts`; consumed by root test discovery so
+  nested `.worktrees/` do not load a second dependency tree.
 
 ## 9. Known Fragilities / UNVERIFIED
 
-- GitHub repository name, owner, visibility, and final Pages URL remain `UNVERIFIED` until publication.
+- GitHub Pages requires this repository to be public on the current account plan; a private-repository
+  Pages enablement attempt returned HTTP 422 on 2026-09-11.
 - No historical code or external project memory was present to reconcile as of 2026-09-11.

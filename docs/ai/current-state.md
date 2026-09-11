@@ -2,7 +2,7 @@
 
 _Verified: 2026-09-11_
 
-The base Courses summary is merged into `master`. The 2Z03 calculator and GitHub Pages support are implemented and verified on `codex/2z03-grade-calculator`, pending approval to publish a public repository.
+The Courses summary, 2Z03 calculator, and GitHub Pages support are merged into `master`, published, and verified live.
 
 ## Required Outcome
 
@@ -16,10 +16,13 @@ The base Courses summary is merged into `master`. The 2Z03 calculator and GitHub
 
 ## Deployment
 
-The static export and Pages workflow are ready. GitHub owner `DenzelJohnson` is authenticated and the proposed `courses-summary` repository name is available; no repository has been created yet.
+Public repository: [DenzelJohnson/courses-summary](https://github.com/DenzelJohnson/courses-summary)
+
+Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.github.io/courses-summary/)
 
 ## Verification So Far
 
-- Vitest: 6 files, 25 tests passing.
+- Vitest: 7 files, 26 tests passing from the repository root; nested worktrees are excluded from discovery.
 - Next.js 16.3.5 static production export succeeds with the GitHub Pages base path.
 - Browser: calculation, saved-value refresh, both schemes, missed-midterm state, blank-view isolation, zero console errors, and 390 px layout verified; document width equals viewport width.
+- GitHub Actions Pages workflow run `34659436007`: build and deployment succeeded on 2026-09-11.

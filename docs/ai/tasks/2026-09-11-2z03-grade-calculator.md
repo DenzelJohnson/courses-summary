@@ -1,6 +1,6 @@
 # Task: Build and publish the 2Z03 grade calculator
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-09-11
 - Updated: 2026-09-11
 - Worktree: `.worktrees/2z03-grade-calculator`
@@ -34,7 +34,7 @@ Included: fixed assessment inputs, missed-midterm controls, current-grade normal
 
 ## Current Checkpoint
 
-The calculator, browser persistence, static navigation, and GitHub Pages workflow are implemented on the feature branch. A verified local development server is running at `http://127.0.0.1:3000` in session `30215`. The authenticated GitHub owner is `DenzelJohnson`, and `DenzelJohnson/courses-summary` does not currently exist. No external repository or Pages settings have been changed.
+The calculator, browser persistence, static navigation, and GitHub Pages workflow are merged to `master` and published. Repository: `https://github.com/DenzelJohnson/courses-summary`. Live site: `https://denzeljohnson.github.io/courses-summary/`. A local preview remains available at `http://127.0.0.1:3000` in session `30215`.
 
 ## Evidence
 
@@ -42,13 +42,15 @@ The calculator, browser persistence, static navigation, and GitHub Pages workflo
 - User confirmed Scheme II replaces a lower midterm with the final-exam mark.
 - User confirmed completed-weight normalization using only entered assessments.
 - Official Next.js and GitHub Pages documentation are linked from the design.
-- Vitest: 6 files and 25 tests passing.
+- Vitest: 7 files and 26 tests passing from the repository root.
 - Static export: Next.js build succeeds and `out/index.html` references `/courses-summary/_next/` assets when the deployment base path is set.
 - Browser: 85 on Assignment 1 and 70 on Midterm 1 produce 74.9%; refresh restores both values; final-exam Scheme II, missed-midterm disabling, blank views, zero console errors, and 390 px no-overflow layout are verified.
-- Feature commits: `043d330`, `da599a1`, `ff892fa`, `71244ad`, and `764a65b`.
+- Feature commits: `043d330`, `da599a1`, `ff892fa`, `71244ad`, `764a65b`, and `d63e8ef`.
+- GitHub Pages run `34659436007` completed successfully. Live-site checks confirmed the 74.9% example, refresh persistence, blank 2GA3 Notes, and no browser console errors.
+- A root-only test-discovery regression test prevents nested `.worktrees/` from loading duplicate React dependencies.
 
 ## Risks and Handoff
 
-Creating a public repository exposes the full Git history, so repository visibility still requires explicit user approval. Exact next action: obtain approval to create public `DenzelJohnson/courses-summary`, then merge to `master`, create/push the repository, enable Pages, and verify the live deployment.
+GitHub Pages was unavailable while the repository was private (HTTP 422 under the current account plan), so the user authorized the required public visibility. No known handoff risk remains.
 
 Information only in chat: none
