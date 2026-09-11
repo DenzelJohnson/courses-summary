@@ -9,7 +9,7 @@ _Last updated: 2026-09-11 by Codex_
 
 This repository contains a Next.js course-summary interface and its tool-neutral project memory.
 The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
-Lectures, and Notes. The 2Z03 Syllabus will contain a persisted grade calculator, while the other
+Lectures, and Notes. The 2Z03 Syllabus contains a persisted grade calculator, while the other
 eight content selections remain empty.
 
 ## 2. Tech Stack
@@ -25,13 +25,14 @@ eight content selections remain empty.
 | Module/path | Responsibility | Reads | Writes |
 |---|---|---|---|
 | `src/lib/navigation.ts` | Course/section values, validation, labels, and URLs | Search parameters | Resolved selection and link URLs |
-| `src/app/page.tsx` | Resolve selection and compose the route | Search parameters and navigation contract | Rendered page |
+| `src/app/page.tsx` | Render the static route shell | Course shell | Rendered page |
+| `src/components/course-shell.tsx` | Resolve client-side URL selection and compose the page | Search parameters and navigation contract | Active header and course content |
 | `src/components/course-header.tsx` | Compose identity and both navigation levels | Resolved selection and navigation contract | Tab-link props |
 | `src/components/tab-navigation.tsx` | Render accessible navigation links | Tab-link props | Semantic navigation markup |
 | `src/components/empty-section.tsx` | Stable blank content landmark | None | Empty `main` landmark |
 | `src/app/globals.css` | Desktop/mobile visual hierarchy | Component class names and active attributes | Presentation |
 | `src/**/*.test.ts(x)` | Verify navigation and header behavior | Public module/component behavior | Test evidence |
-| `next.config.ts` | Anchor Next.js workspace discovery to this repository | Current working directory | Turbopack root configuration |
+| `next.config.ts` | Configure workspace discovery and static export | Current working directory and deployment base path | Turbopack root and exported site configuration |
 | `src/lib/grade-calculator.ts` | Validate persisted state and calculate current/Scheme I/Scheme II marks | Versioned grade state | Pure calculation result |
 | `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
 | `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
@@ -51,7 +52,7 @@ GitHub will host the repository and Pages site. Repository identity and visibili
 
 ## 7. Automations
 
-The planned GitHub Actions Pages workflow will run on pushes to `master` and manual dispatch. No
+The GitHub Actions Pages workflow runs on pushes to `master` and manual dispatch. No
 other project automation or scheduled task is known.
 
 ## 8. Dependency Map
