@@ -1,0 +1,7 @@
+.worktrees/
+.scope/
+node_modules/
+.next/
+coverage/
+.DS_Store
+*.tsbuildinfo
