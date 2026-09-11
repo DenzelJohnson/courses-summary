@@ -30,6 +30,7 @@ contain Syllabus, Lectures, and Notes sections. Section content is intentionally
 | `src/components/empty-section.tsx` | Stable blank content landmark | None | Empty `main` landmark |
 | `src/app/globals.css` | Desktop/mobile visual hierarchy | Component class names and active attributes | Presentation |
 | `src/**/*.test.ts(x)` | Verify navigation and header behavior | Public module/component behavior | Test evidence |
+| `next.config.ts` | Anchor Next.js workspace discovery to this repository | Current working directory | Turbopack root configuration |
 
 ## 4. Databases
 
@@ -55,6 +56,7 @@ identified an external automation that reads or writes project contracts.
 - Search parameter selection -> produced by the browser URL; consumed by `resolveSelection`; the
   resolved values produce active states and all navigation URLs.
 - Component class/attribute names -> produced by React components; consumed by `globals.css`.
+- Turbopack workspace root -> produced by `next.config.ts`; consumed by `next dev` and `next build` so unrelated parent lockfiles are ignored.
 - Project operating memory -> governed by `AGENTS.md` and indexed by `docs/ai/INDEX.md`.
 - No automation or external service reads or writes these contracts.
 
