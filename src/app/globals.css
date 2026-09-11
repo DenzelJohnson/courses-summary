@@ -124,6 +124,190 @@ a {
   min-height: calc(100vh - 13.75rem);
 }
 
+.course-content {
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4.25vw, 5.75rem) 5rem;
+}
+
+.grade-calculator {
+  width: min(100%, 70rem);
+  margin: 0 auto;
+}
+
+.grade-result {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.3rem 2rem;
+  align-items: end;
+  margin-bottom: 1rem;
+  padding: clamp(1.35rem, 3vw, 2rem);
+  border: 1px solid #e8dfd9;
+  border-radius: 1.25rem;
+  background: var(--burgundy);
+  color: #fff;
+  box-shadow: 0 16px 38px rgb(83 33 28 / 10%);
+}
+
+.grade-result__label {
+  align-self: start;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+.grade-result > strong {
+  grid-row: 2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.scheme-results {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: flex;
+  gap: 0.65rem;
+  align-items: stretch;
+}
+
+.scheme-results > span {
+  min-width: 8.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 0.85rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.scheme-results b {
+  font-size: 1.2rem;
+}
+
+.scheme-result--muted {
+  opacity: 0.54;
+}
+
+.assessment-groups {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.assessment-group {
+  padding: clamp(1.15rem, 2.5vw, 1.6rem);
+  border: 1px solid #e8dfd9;
+  border-radius: 1.15rem;
+  background: var(--surface);
+}
+
+.assessment-group__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.15rem;
+}
+
+.assessment-group h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.assessment-group__heading > span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.mark-field {
+  min-width: 0;
+  display: grid;
+  gap: 0.42rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.mark-field__control {
+  position: relative;
+}
+
+.mark-field input {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.72rem 2rem 0.72rem 0.75rem;
+  border: 1px solid #d9d0c9;
+  border-radius: 0.7rem;
+  outline: none;
+  background: #fff;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.95rem;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.mark-field input:focus-visible {
+  border-color: #b85355;
+  box-shadow: 0 0 0 3px rgb(184 83 85 / 15%);
+}
+
+.mark-field input[aria-invalid="true"] {
+  border-color: #c93437;
+  box-shadow: 0 0 0 3px rgb(201 52 55 / 12%);
+}
+
+.mark-field input:disabled {
+  background: #f0ece8;
+  color: #958d87;
+}
+
+.mark-field__control > span {
+  position: absolute;
+  top: 50%;
+  right: 0.7rem;
+  transform: translateY(-50%);
+  color: #918983;
+  font-size: 0.78rem;
+  pointer-events: none;
+}
+
+.midterm-field {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.missed-control {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.missed-control input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--burgundy);
+}
+
 @media (max-width: 720px) {
   .course-header {
     padding: 0 1.25rem;
@@ -160,6 +344,33 @@ a {
 
   .empty-section {
     min-height: 65vh;
+  }
+
+  .course-content {
+    padding: 1.25rem 1rem 3rem;
+  }
+
+  .grade-result {
+    grid-template-columns: 1fr;
+  }
+
+  .scheme-results {
+    grid-column: 1;
+    grid-row: auto;
+    margin-top: 0.8rem;
+  }
+
+  .scheme-results > span {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .assessment-groups {
+    grid-template-columns: 1fr;
+  }
+
+  .assessment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
