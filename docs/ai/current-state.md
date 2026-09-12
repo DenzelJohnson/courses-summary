@@ -2,8 +2,8 @@
 
 _Verified: 2026-09-11_
 
-The Courses summary, 2Z03 calculator, and GitHub Pages support are published from `master`. The
-2Z03 Tasks table is implemented and verified on `codex/2z03-tasks-table`, pending merge and deployment.
+The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
+and verified live.
 
 ## Required Outcome
 
@@ -30,3 +30,4 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
 - GitHub Actions Pages workflow run `34659436007`: build and deployment succeeded on 2026-09-11.
 - Tasks feature evidence: 34 tests pass; static export passes; browser confirms four table columns,
   51 data rows, refresh persistence, blank 2GA3 Tasks, no console errors, and 390 px containment.
+- GitHub Actions Pages workflow run `34663726911`: build and deployment succeeded on 2026-09-11.

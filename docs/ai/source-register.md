@@ -21,3 +21,4 @@ _Updated: 2026-09-11_
 | `docs/superpowers/specs/2026-09-11-2z03-tasks-table-design.md` | Approved Tasks-table behavior and schedule contract | Authoritative |
 | `docs/superpowers/plans/2026-09-11-2z03-tasks-table.md` | Test-first Tasks-table implementation sequence | Authoritative plan |
 | User-supplied schedule screenshots from 2026-09-11 | Lecture topics and 2Z03 assessment dates | External authoritative requirement; not copied into repository |
+| GitHub Pages workflow run `34663726911` | Tasks-table static deployment | Succeeded 2026-09-11 |
