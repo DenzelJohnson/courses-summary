@@ -9,8 +9,9 @@ _Last updated: 2026-09-11 by Codex_
 
 This repository contains a Next.js course-summary interface and its tool-neutral project memory.
 The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
-Lectures, and Notes. The 2Z03 Syllabus contains a persisted grade calculator, while the other
-eight content selections remain empty.
+Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
+contains a fixed course schedule with saved completion states, while the other course-content
+selections remain empty.
 
 ## 2. Tech Stack
 
@@ -37,6 +38,8 @@ eight content selections remain empty.
 | `src/lib/grade-calculator.ts` | Validate persisted state and calculate current/Scheme I/Scheme II marks | Versioned grade state | Pure calculation result |
 | `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
 | `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
+| `src/lib/course-tasks.ts` | Define the fixed 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
+| `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and browser storage | Saved completion state and table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
@@ -51,7 +54,8 @@ None.
 
 GitHub hosts the public `DenzelJohnson/courses-summary` repository and Pages site at
 `https://denzeljohnson.github.io/courses-summary/`. Browser `localStorage` stores only grade inputs
-on the current device under `courses-summary:2z03:grades:v1`.
+on the current device under `courses-summary:2z03:grades:v1` and task completion state under a
+separate versioned 2Z03 key.
 
 ## 7. Automations
 
@@ -70,6 +74,10 @@ other project automation or scheduled task is known.
 - No automation or external service reads or writes these contracts.
 - Grade-state contract -> produced by calculator inputs and `localStorage`; consumed by the pure
   grade engine and result display. No server receives the marks.
+- Task-schedule contract -> produced by `src/lib/course-tasks.ts`; consumed by the 2Z03 Tasks
+  table and its tests. The schedule is fixed course data and has no external producer.
+- Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
+  by the same Tasks table after reload. No server, automation, or grade-calculator module receives it.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
 - `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.
