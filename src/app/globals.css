@@ -308,6 +308,81 @@ a {
   accent-color: var(--burgundy);
 }
 
+.tasks-table {
+  width: min(100%, 70rem);
+  margin: 0 auto;
+  overflow-x: auto;
+  border: 1px solid #e8dfd9;
+  border-radius: 1.15rem;
+  background: var(--surface);
+  box-shadow: 0 16px 38px rgb(83 33 28 / 5%);
+}
+
+.tasks-table table {
+  width: 100%;
+  min-width: 44rem;
+  border-collapse: collapse;
+}
+
+.tasks-table th,
+.tasks-table td {
+  padding: 0.9rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tasks-table th {
+  background: var(--burgundy);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tasks-table th:first-child {
+  border-top-left-radius: 1.05rem;
+}
+
+.tasks-table th:last-child {
+  border-top-right-radius: 1.05rem;
+}
+
+.tasks-table td {
+  border-top: 1px solid var(--divider);
+  font-size: 0.9rem;
+}
+
+.tasks-table td:first-child,
+.tasks-table td:nth-child(3) {
+  color: var(--muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.task-toggle {
+  min-width: 6.9rem;
+  padding: 0.58rem 0.75rem;
+  border: 1px solid var(--burgundy);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--burgundy);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.task-toggle--completed {
+  background: var(--burgundy);
+  color: #fff;
+}
+
+.task-toggle:focus-visible {
+  outline: 3px solid #d58e85;
+  outline-offset: 3px;
+}
+
 @media (max-width: 720px) {
   .course-header {
     padding: 0 1.25rem;

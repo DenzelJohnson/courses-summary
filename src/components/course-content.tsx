@@ -1,6 +1,7 @@
 import type { Course, Section } from "@/lib/navigation";
 import { EmptySection } from "./empty-section";
 import { GradeCalculator } from "./grade-calculator";
+import { TasksTable } from "./tasks-table";
 
 type CourseContentProps = {
   course: Course;
@@ -8,6 +9,7 @@ type CourseContentProps = {
 };
 
 export function CourseContent({ course, section }: CourseContentProps) {
+  if (course === "2Z03" && section === "lectures") return <TasksTable />;
   if (course !== "2Z03" || section !== "syllabus") return <EmptySection />;
 
   return (
