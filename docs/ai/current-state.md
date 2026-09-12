@@ -2,7 +2,8 @@
 
 _Verified: 2026-09-11_
 
-The Courses summary, 2Z03 calculator, and GitHub Pages support are merged into `master`, published, and verified live.
+The Courses summary, 2Z03 calculator, and GitHub Pages support are published from `master`. The
+2Z03 Tasks table is implemented and verified on `codex/2z03-tasks-table`, pending merge and deployment.
 
 ## Required Outcome
 
@@ -11,6 +12,7 @@ The Courses summary, 2Z03 calculator, and GitHub Pages support are merged into `
 - Secondary tabs for every course: Syllabus, Lectures, Notes.
 - Default selection: 2Z03 and Syllabus.
 - 2Z03 Syllabus: saved grade calculator with Scheme I/II comparison.
+- 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
 - All other content areas: blank.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
 
@@ -26,3 +28,5 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
 - Next.js 16.3.5 static production export succeeds with the GitHub Pages base path.
 - Browser: calculation, saved-value refresh, both schemes, missed-midterm state, blank-view isolation, zero console errors, and 390 px layout verified; document width equals viewport width.
 - GitHub Actions Pages workflow run `34659436007`: build and deployment succeeded on 2026-09-11.
+- Tasks feature evidence: 34 tests pass; static export passes; browser confirms four table columns,
+  51 data rows, refresh persistence, blank 2GA3 Tasks, no console errors, and 390 px containment.

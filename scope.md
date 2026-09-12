@@ -38,8 +38,9 @@ selections remain empty.
 | `src/lib/grade-calculator.ts` | Validate persisted state and calculate current/Scheme I/Scheme II marks | Versioned grade state | Pure calculation result |
 | `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
 | `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
-| `src/lib/course-tasks.ts` | Define the fixed 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
-| `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and browser storage | Saved completion state and table UI |
+| `src/lib/course-tasks.ts` | Define the fixed 51-row 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
+| `src/hooks/use-persistent-task-completions.ts` | Restore, save, and toggle task completion state | Task IDs and browser storage | Completion map |
+| `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and completion map | Saved completion state and table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
@@ -77,7 +78,8 @@ other project automation or scheduled task is known.
 - Task-schedule contract -> produced by `src/lib/course-tasks.ts`; consumed by the 2Z03 Tasks
   table and its tests. The schedule is fixed course data and has no external producer.
 - Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
-  by the same Tasks table after reload. No server, automation, or grade-calculator module receives it.
+  by `use-persistent-task-completions` and the same Tasks table after reload. No server,
+  automation, or grade-calculator module receives it.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
 - `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.
