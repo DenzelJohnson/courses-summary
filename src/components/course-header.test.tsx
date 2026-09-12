@@ -15,7 +15,7 @@ describe("CourseHeader", () => {
       "href",
       "/?course=3BB4&section=notes",
     );
-    expect(screen.getByRole("link", { name: "Lectures" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "Tasks" })).toHaveAttribute(
       "href",
       "/?course=2GA3&section=lectures",
     );

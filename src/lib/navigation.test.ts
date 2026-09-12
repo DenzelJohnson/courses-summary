@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { buildHref, resolveSelection } from "./navigation";
+import { buildHref, resolveSelection, sectionLabels } from "./navigation";
 
 describe("resolveSelection", () => {
   it("defaults to 2Z03 and syllabus", () => {
@@ -24,5 +24,10 @@ describe("resolveSelection", () => {
 describe("buildHref", () => {
   it("creates a bookmarkable course and section URL", () => {
     expect(buildHref("2GA3", "lectures")).toBe("/?course=2GA3&section=lectures");
+  });
+
+  it("keeps the stable lectures URL while displaying Tasks", () => {
+    expect(sectionLabels.lectures).toBe("Tasks");
+    expect(buildHref("2Z03", "lectures")).toBe("/?course=2Z03&section=lectures");
   });
 });

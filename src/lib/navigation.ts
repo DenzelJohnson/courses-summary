@@ -6,7 +6,7 @@ export type Section = (typeof sections)[number];
 
 export const sectionLabels: Record<Section, string> = {
   syllabus: "Syllabus",
-  lectures: "Lectures",
+  lectures: "Tasks",
   notes: "Notes",
 };
 
