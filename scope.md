@@ -10,8 +10,8 @@ _Last updated: 2026-09-11 by Codex_
 This repository contains a Next.js course-summary interface and its tool-neutral project memory.
 The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
 Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
-contains a fixed course schedule with saved completion states, while the other course-content
-selections remain empty.
+contains a fixed course schedule with saved completion states. Planned 3BB4 content adds its own
+persisted calculator and Tasks view; the 2GA3 selections remain empty.
 
 ## 2. Tech Stack
 
@@ -41,6 +41,8 @@ selections remain empty.
 | `src/lib/course-tasks.ts` | Define the fixed 51-row 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
 | `src/hooks/use-persistent-task-completions.ts` | Restore, save, and toggle task completion state | Task IDs and browser storage | Completion map |
 | `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and completion map | Saved completion state and table UI |
+| Planned 3BB4 calculator modules | Validate, calculate, render, and persist 3BB4 marks and MSAF toggles | 3BB4 user input and browser storage | Separate 3BB4 grade state and current mark |
+| Planned 3BB4 task modules | Define and render 23 3BB4 task rows with saved checklist state | Fixed 3BB4 task data and browser storage | Separate 3BB4 completion state and table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
@@ -56,7 +58,8 @@ None.
 GitHub hosts the public `DenzelJohnson/courses-summary` repository and Pages site at
 `https://denzeljohnson.github.io/courses-summary/`. Browser `localStorage` stores only grade inputs
 on the current device under `courses-summary:2z03:grades:v1` and task completion state under a
-separate versioned 2Z03 key.
+separate versioned 2Z03 key. Planned 3BB4 content uses separate versioned grade and completion
+keys so no course reads or overwrites the other's data.
 
 ## 7. Automations
 
@@ -80,6 +83,11 @@ other project automation or scheduled task is known.
 - Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
   by `use-persistent-task-completions` and the same Tasks table after reload. No server,
   automation, or grade-calculator module receives it.
+- Planned 3BB4 grade-state contract -> produced by 3BB4 calculator inputs and MSAF toggles;
+  consumed by a 3BB4 grade engine and result display. It must use a distinct storage key and has no
+  producer or consumer outside the browser.
+- Planned 3BB4 task contract -> produced by typed fixed-course data; consumed only by the 3BB4
+  Tasks table and its completion persistence. It must not affect the 2Z03 task schedule.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
 - `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.
