@@ -21,3 +21,10 @@ calculator changes.
 Approved design: `docs/superpowers/specs/2026-09-13-task-timeline-and-assessment-emphasis-design.md`.
 Automate Pipeline is authorized to proceed through planning, implementation, integration, and
 publication without routine approval checkpoints.
+
+Implementation is complete on `codex/task-timeline-emphasis`. The shared date helper ignores
+times and `TBD` values, then marks the final table-ordered task dated today or earlier. Both
+tables apply the resulting divider class and emphasize assessed task rows. Evidence: 16 Vitest
+files / 48 tests pass, the static production build passes, and local browser checks confirm the
+2Z03 divider and assessment treatment plus the 3BB4 assessment treatment. Independent review
+and GitHub Pages publication remain before completion.

@@ -5,6 +5,7 @@ import {
   THREE_BB4_TASK_COMPLETION_STORAGE_KEY,
   threeBB4Tasks,
 } from "@/lib/3bb4-tasks";
+import { findLatestCurrentTaskId } from "@/lib/task-timeline";
 
 const taskIds = threeBB4Tasks.map((task) => task.id);
 
@@ -13,6 +14,7 @@ export function ThreeBB4TasksTable() {
     THREE_BB4_TASK_COMPLETION_STORAGE_KEY,
     taskIds,
   );
+  const currentTaskId = findLatestCurrentTaskId(threeBB4Tasks, new Date());
 
   return (
     <main className="course-content" aria-label="Course content">
@@ -29,8 +31,14 @@ export function ThreeBB4TasksTable() {
           <tbody>
             {threeBB4Tasks.map((task) => {
               const isCompleted = completed[task.id] === true;
+              const rowClassName = [
+                task.type !== "Lecture" ? "task-row--assessment" : "",
+                task.id === currentTaskId ? "task-row--current" : "",
+              ]
+                .filter(Boolean)
+                .join(" ");
               return (
-                <tr key={task.id}>
+                <tr className={rowClassName} key={task.id}>
                   <td>{task.type}</td>
                   <td>{task.name}</td>
                   <td>{task.date}</td>

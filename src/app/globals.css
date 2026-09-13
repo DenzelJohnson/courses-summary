@@ -353,6 +353,14 @@ a {
   font-size: 0.9rem;
 }
 
+.task-row--assessment td {
+  background: #f3edff;
+}
+
+.task-row--current td {
+  border-bottom: 5px solid #8b3dff;
+}
+
 .tasks-table td:first-child,
 .tasks-table td:nth-child(3) {
   color: var(--muted);

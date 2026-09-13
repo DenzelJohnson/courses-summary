@@ -8,6 +8,7 @@ export type CourseTask = {
   name: string;
   date: string;
   sortOrder: number;
+  calendarDate?: number | null;
 };
 
 export const TASK_COMPLETION_STORAGE_KEY = "courses-summary:2z03:tasks:v1";
@@ -79,6 +80,13 @@ const assessmentTasks: readonly CourseTask[] = [
   { id: "final-exam", type: "Exam", name: "Final Exam", date: "TBD", sortOrder: 999999999999 },
 ];
 
-export const courseTasks = [...lectureTasks, ...assessmentTasks].sort(
-  (left, right) => left.sortOrder - right.sortOrder,
-);
+function fall2026CalendarDate(sortOrder: number) {
+  return 20260000 + (Math.floor(sortOrder / 10_000) % 10_000);
+}
+
+export const courseTasks = [...lectureTasks, ...assessmentTasks]
+  .sort((left, right) => left.sortOrder - right.sortOrder)
+  .map((task) => ({
+    ...task,
+    calendarDate: task.date === "TBD" ? null : fall2026CalendarDate(task.sortOrder),
+  }));

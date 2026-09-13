@@ -14,6 +14,8 @@ describe("threeBB4Tasks", () => {
       name: "Midterm",
       date: "Week of Oct 19–23 · 20:00",
     });
+    expect(threeBB4Tasks.find((task) => task.id === "midterm")?.calendarDate).toBe(20261023);
+    expect(threeBB4Tasks.find((task) => task.id === "assignment-1")?.calendarDate).toBeNull();
     expect(THREE_BB4_TASK_COMPLETION_STORAGE_KEY).toBe("courses-summary:3bb4:tasks:v1");
   });
 });

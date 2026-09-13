@@ -27,6 +27,8 @@ describe("courseTasks", () => {
       date: "Thu, Nov 26 · 18:30",
     });
     expect(courseTasks.at(-1)).toMatchObject({ type: "Exam", name: "Final Exam", date: "TBD" });
+    expect(courseTasks.find((task) => task.id === "lecture-1")?.calendarDate).toBe(20260910);
+    expect(courseTasks.find((task) => task.id === "final-exam")?.calendarDate).toBeNull();
     expect(TASK_COMPLETION_STORAGE_KEY).toBe("courses-summary:2z03:tasks:v1");
   });
 });
