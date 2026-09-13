@@ -3,14 +3,14 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-09-11 by Codex_
+_Last updated: 2026-09-13 by Codex_
 
 ## 1. Overview
 
 This repository contains a Next.js course-summary interface and its tool-neutral project memory.
 The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
 Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
-contains a fixed course schedule with saved completion states. Planned 3BB4 content adds its own
+contains a fixed course schedule with saved completion states. The 3BB4 Syllabus has its own
 persisted calculator and Tasks view; the 2GA3 selections remain empty.
 
 ## 2. Tech Stack
@@ -41,8 +41,11 @@ persisted calculator and Tasks view; the 2GA3 selections remain empty.
 | `src/lib/course-tasks.ts` | Define the fixed 51-row 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
 | `src/hooks/use-persistent-task-completions.ts` | Restore, save, and toggle task completion state | Task IDs and browser storage | Completion map |
 | `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and completion map | Saved completion state and table UI |
-| Planned 3BB4 calculator modules | Validate, calculate, render, and persist 3BB4 marks and MSAF toggles | 3BB4 user input and browser storage | Separate 3BB4 grade state and current mark |
-| Planned 3BB4 task modules | Define and render 23 3BB4 task rows with saved checklist state | Fixed 3BB4 task data and browser storage | Separate 3BB4 completion state and table UI |
+| `src/lib/3bb4-grade-calculator.ts` | Validate versioned 3BB4 marks and calculate current grade with MSAF final-weight transfer | 3BB4 grade state | Pure current grade |
+| `src/hooks/use-persistent-3bb4-grade-state.ts` | Restore and save 3BB4 grade state in browser storage | 3BB4 grade state and browser storage | Versioned 3BB4 grade state |
+| `src/components/3bb4-grade-calculator.tsx` | Render 3BB4 mark inputs, MSAF controls, and current grade | 3BB4 grade state | Saved grade state and calculator UI |
+| `src/lib/3bb4-tasks.ts` | Define fixed 23-row 3BB4 task data and completion storage key | None | Typed 3BB4 task rows and storage key |
+| `src/components/3bb4-tasks-table.tsx` | Render 3BB4 task table and saved checklist state | 3BB4 task rows and completion map | Checklist table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
@@ -58,8 +61,8 @@ None.
 GitHub hosts the public `DenzelJohnson/courses-summary` repository and Pages site at
 `https://denzeljohnson.github.io/courses-summary/`. Browser `localStorage` stores only grade inputs
 on the current device under `courses-summary:2z03:grades:v1` and task completion state under a
-separate versioned 2Z03 key. Planned 3BB4 content uses separate versioned grade and completion
-keys so no course reads or overwrites the other's data.
+separate versioned 2Z03 key. 3BB4 uses `courses-summary:3bb4:grades:v1` and
+`courses-summary:3bb4:tasks:v1`, so no course reads or overwrites the other's data.
 
 ## 7. Automations
 
@@ -83,11 +86,14 @@ other project automation or scheduled task is known.
 - Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
   by `use-persistent-task-completions` and the same Tasks table after reload. No server,
   automation, or grade-calculator module receives it.
-- Planned 3BB4 grade-state contract -> produced by 3BB4 calculator inputs and MSAF toggles;
-  consumed by a 3BB4 grade engine and result display. It must use a distinct storage key and has no
-  producer or consumer outside the browser.
-- Planned 3BB4 task contract -> produced by typed fixed-course data; consumed only by the 3BB4
-  Tasks table and its completion persistence. It must not affect the 2Z03 task schedule.
+- 3BB4 grade-state contract -> produced by 3BB4 calculator inputs and MSAF toggles; consumed by
+  `3bb4-grade-calculator.ts`, its persistence hook, and result display. It uses a distinct storage
+  key and has no producer or consumer outside the browser.
+- 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed only by the 3BB4 Tasks table and the
+  keyed shared completion hook. It must not affect the 2Z03 task schedule.
+- Shared completion-hook signature -> produced by `use-persistent-task-completions.ts`; consumed
+  by both the 2Z03 and 3BB4 Tasks tables and its tests. Each caller supplies its task IDs and a
+  course-specific storage key, so their saved completion maps remain isolated.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
 - `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.
