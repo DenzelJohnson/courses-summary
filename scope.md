@@ -39,6 +39,7 @@ persisted calculator and Tasks view; the 2GA3 selections remain empty.
 | `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
 | `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
 | `src/lib/course-tasks.ts` | Define the fixed 51-row 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
+| `src/lib/task-timeline.ts` | Select the latest task dated today or earlier | Typed task rows and local calendar day | Divider task ID or no divider |
 | `src/hooks/use-persistent-task-completions.ts` | Restore, save, and toggle task completion state | Task IDs and browser storage | Completion map |
 | `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and completion map | Saved completion state and table UI |
 | `src/lib/3bb4-grade-calculator.ts` | Validate versioned 3BB4 marks and calculate current grade with MSAF final-weight transfer | 3BB4 grade state | Pure current grade |
@@ -82,7 +83,8 @@ other project automation or scheduled task is known.
 - Grade-state contract -> produced by calculator inputs and `localStorage`; consumed by the pure
   grade engine and result display. No server receives the marks.
 - Task-schedule contract -> produced by `src/lib/course-tasks.ts`; consumed by the 2Z03 Tasks
-  table and its tests. The schedule is fixed course data and has no external producer.
+  table, the task-timeline helper, and their tests. Its optional calendar-day field establishes
+  Fall 2026 task timing and has no external producer.
 - Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
   by `use-persistent-task-completions` and the same Tasks table after reload. No server,
   automation, or grade-calculator module receives it.
@@ -90,7 +92,11 @@ other project automation or scheduled task is known.
   `3bb4-grade-calculator.ts`, its persistence hook, and result display. It uses a distinct storage
   key and has no producer or consumer outside the browser.
 - 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed only by the 3BB4 Tasks table and the
-  keyed shared completion hook. It must not affect the 2Z03 task schedule.
+  keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
+  and it must not affect the 2Z03 task schedule.
+- Task-timeline contract -> produced by both course task modules and the browser's local date;
+  consumed by both Tasks tables to add a non-persistent divider class. GitHub Pages and task
+  completion storage do not read or write this derived UI state.
 - Shared completion-hook signature -> produced by `use-persistent-task-completions.ts`; consumed
   by both the 2Z03 and 3BB4 Tasks tables and its tests. Each caller supplies its task IDs and a
   course-specific storage key, so their saved completion maps remain isolated.
