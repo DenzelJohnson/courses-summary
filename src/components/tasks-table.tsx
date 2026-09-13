@@ -1,12 +1,12 @@
 "use client";
 
 import { usePersistentTaskCompletions } from "@/hooks/use-persistent-task-completions";
-import { courseTasks } from "@/lib/course-tasks";
+import { courseTasks, TASK_COMPLETION_STORAGE_KEY } from "@/lib/course-tasks";
 
 const taskIds = courseTasks.map((task) => task.id);
 
 export function TasksTable() {
-  const { completed, toggle } = usePersistentTaskCompletions(taskIds);
+  const { completed, toggle } = usePersistentTaskCompletions(TASK_COMPLETION_STORAGE_KEY, taskIds);
 
   return (
     <main className="course-content" aria-label="Course content">
@@ -47,4 +47,3 @@ export function TasksTable() {
     </main>
   );
 }
-
