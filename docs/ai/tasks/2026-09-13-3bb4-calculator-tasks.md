@@ -1,6 +1,6 @@
 # Task: Build and publish 3BB4 calculator and Tasks
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-09-13
 - Updated: 2026-09-13
 
@@ -18,10 +18,9 @@ Excluded: inferred dates, editable tasks, new 2Z03 behavior, and 2GA3 content.
 
 ## Current Checkpoint
 
-Implementation is complete in worktree `.worktrees/3bb4-calculator-tasks` on branch
-`codex/3bb4-calculator-tasks`; it is awaiting integration and GitHub Pages verification. The
-approved design is `docs/superpowers/specs/2026-09-11-3bb4-calculator-tasks-design.md` and the
-implementation plan is `docs/superpowers/plans/2026-09-13-3bb4-calculator-tasks.md`.
+The feature is merged into `master`, pushed, and verified on GitHub Pages. The approved design is
+`docs/superpowers/specs/2026-09-11-3bb4-calculator-tasks-design.md` and the implementation plan is
+`docs/superpowers/plans/2026-09-13-3bb4-calculator-tasks.md`.
 
 ## Evidence
 
@@ -33,9 +32,11 @@ implementation plan is `docs/superpowers/plans/2026-09-13-3bb4-calculator-tasks.
 - Browser at `http://127.0.0.1:3001`: an 85 Assignment 1 and 70 Midterm show 75.0%; MSAF Assignment
   2 disables its input and both values restore after refresh. The Tasks table has 23 data rows;
   Lecture 18 completion restores after refresh. Existing 2Z03 Tasks and calculator remain present.
+- GitHub Pages workflow [34772391175](https://github.com/DenzelJohnson/courses-summary/actions/runs/34772391175)
+  completed successfully for merged commit `b896d35`. The live Syllabus shows the 3BB4 calculator,
+  and the live Tasks view shows three assignments, the dated midterm, final, and Lectures 1–18.
 
 ## Risks and Handoff
 
 All unknown dates intentionally remain `TBD`. MSAF moves each affected assignment (10%) or midterm
-(20%) to the final when a final mark is present. GitHub Pages is not yet updated; next action is to
-review the branch, merge it to `master`, push, and confirm the deployed site.
+(20%) to the final when a final mark is present. No known handoff risk remains.

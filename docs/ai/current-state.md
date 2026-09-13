@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-11_
+_Verified: 2026-09-13_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -13,7 +13,11 @@ and verified live.
 - Default selection: 2Z03 and Syllabus.
 - 2Z03 Syllabus: saved grade calculator with Scheme I/II comparison.
 - 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
-- All other content areas: blank.
+- 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
+  and assignment/midterm MSAF controls that transfer weight to a saved final mark.
+- 3BB4 Tasks: saved 23-row checklist with three assignments, a midterm, final exam, and Lectures
+  1–18. Unknown dates are `TBD`.
+- All 2GA3 content areas and 3BB4 Notes: blank.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
 
 ## Deployment
@@ -31,3 +35,8 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
 - Tasks feature evidence: 34 tests pass; static export passes; browser confirms four table columns,
   51 data rows, refresh persistence, blank 2GA3 Tasks, no console errors, and 390 px containment.
 - GitHub Actions Pages workflow run `34663726911`: build and deployment succeeded on 2026-09-11.
+- 3BB4 feature evidence: 15 Vitest files and 43 tests pass; static export passes; browser confirms
+  calculator persistence, MSAF input disabling, 23 Tasks rows, saved checklist status, and 2Z03
+  regression coverage. GitHub Actions Pages workflow
+  [34772391175](https://github.com/DenzelJohnson/courses-summary/actions/runs/34772391175) succeeded
+  on 2026-09-13 and the live 3BB4 Syllabus and Tasks views were checked.
