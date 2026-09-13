@@ -93,4 +93,26 @@ describe("CourseContent", () => {
     calculator.rerender(<CourseContent course="2Z03" section="syllabus" />);
     expect(screen.getByRole("region", { name: "Grade calculator" })).toBeInTheDocument();
   });
+
+  it("renders the matching published document for every Notes view", () => {
+    const content = render(<CourseContent course="2Z03" section="notes" />);
+
+    expect(screen.getByTitle("2Z03 notes")).toHaveAttribute(
+      "src",
+      expect.stringContaining("2PACX-1vTPcjq"),
+    );
+    expect(screen.queryByRole("main", { name: "Course content" })).not.toBeInTheDocument();
+
+    content.rerender(<CourseContent course="2GA3" section="notes" />);
+    expect(screen.getByTitle("2GA3 notes")).toHaveAttribute(
+      "src",
+      expect.stringContaining("2PACX-1vRhv5D"),
+    );
+
+    content.rerender(<CourseContent course="3BB4" section="notes" />);
+    expect(screen.getByTitle("3BB4 notes")).toHaveAttribute(
+      "src",
+      expect.stringContaining("2PACX-1vTzW8e"),
+    );
+  });
 });
