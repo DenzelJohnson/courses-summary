@@ -1,6 +1,6 @@
 # Task: Add current timeline marker and assessment emphasis
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-09-13
 - Updated: 2026-09-13
 
@@ -22,9 +22,10 @@ Approved design: `docs/superpowers/specs/2026-09-13-task-timeline-and-assessment
 Automate Pipeline is authorized to proceed through planning, implementation, integration, and
 publication without routine approval checkpoints.
 
-Implementation is complete on `codex/task-timeline-emphasis`. The shared date helper ignores
-times and `TBD` values, then marks the final table-ordered task dated today or earlier. Both
-tables apply the resulting divider class and emphasize assessed task rows. Evidence: 16 Vitest
-files / 48 tests pass, the static production build passes, and local browser checks confirm the
-2Z03 divider and assessment treatment plus the 3BB4 assessment treatment. Independent review
-and GitHub Pages publication remain before completion.
+The shared date helper ignores times and `TBD` values, then marks the final table-ordered task
+dated today or earlier. Both tables apply the resulting divider class and emphasize assessed task
+rows. Evidence: 16 Vitest files / 48 tests pass, the static production build passes, independent
+review found no issues, and local plus live browser checks confirmed the 2Z03 divider and both
+courses' assessment treatment. The feature was merged and published on `master` as `1bedae7`.
+GitHub Pages workflow [34773465419](https://github.com/DenzelJohnson/courses-summary/actions/runs/34773465419)
+succeeded on 2026-09-13.

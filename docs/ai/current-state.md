@@ -17,6 +17,9 @@ and verified live.
   and assignment/midterm MSAF controls that transfer weight to a saved final mark.
 - 3BB4 Tasks: saved 23-row checklist with three assignments, a midterm, final exam, and Lectures
   1–18. Unknown dates are `TBD`.
+- 2Z03 and 3BB4 Tasks: a bright purple divider follows the final table-ordered dated task on or
+  before the browser's local calendar day; `TBD` tasks do not participate. Assignment, Lab,
+  Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
 - All 2GA3 content areas and 3BB4 Notes: blank.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
 
@@ -40,3 +43,8 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   regression coverage. GitHub Actions Pages workflow
   [34772391175](https://github.com/DenzelJohnson/courses-summary/actions/runs/34772391175) succeeded
   on 2026-09-13 and the live 3BB4 Syllabus and Tasks views were checked.
+- Timeline-emphasis feature evidence: 16 Vitest files and 48 tests pass; static export passes;
+  local and live browser checks confirm the 2Z03 current-task divider and both tables' assessment
+  emphasis. GitHub Actions Pages workflow
+  [34773465419](https://github.com/DenzelJohnson/courses-summary/actions/runs/34773465419) succeeded
+  on 2026-09-13.
