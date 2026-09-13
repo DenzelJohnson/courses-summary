@@ -11,7 +11,8 @@ This repository contains a Next.js course-summary interface and its tool-neutral
 The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
 Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
 contains a fixed course schedule with saved completion states. The 3BB4 Syllabus has its own
-persisted calculator and Tasks view; the 2GA3 selections remain empty.
+persisted calculator and Tasks view. Each Notes view renders its course's public, read-only Google
+Docs publication; the 2GA3 Syllabus and Tasks selections remain empty.
 
 ## 2. Tech Stack
 
@@ -38,6 +39,8 @@ persisted calculator and Tasks view; the 2GA3 selections remain empty.
 | `src/lib/grade-calculator.ts` | Validate persisted state and calculate current/Scheme I/Scheme II marks | Versioned grade state | Pure calculation result |
 | `src/components/grade-calculator.tsx` | Render inputs/results and synchronize browser storage | User input and `localStorage` | Versioned saved grade state |
 | `src/components/course-content.tsx` | Select calculator or blank content | Course and section selection | Page content |
+| `src/lib/course-notes.ts` | Define the public per-course Google Docs viewer catalog | None | Typed Notes viewer data |
+| `src/components/notes-viewer.tsx` | Render a responsive read-only Google Docs iframe | Course key and notes catalog | Notes view |
 | `src/lib/course-tasks.ts` | Define the fixed 51-row 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
 | `src/lib/task-timeline.ts` | Select the latest task dated today or earlier | Typed task rows and local calendar day | Divider task ID or no divider |
 | `src/hooks/use-persistent-task-completions.ts` | Restore, save, and toggle task completion state | Task IDs and browser storage | Completion map |
@@ -65,6 +68,10 @@ on the current device under `courses-summary:2z03:grades:v1` and task completion
 separate versioned 2Z03 key. 3BB4 uses `courses-summary:3bb4:grades:v1` and
 `courses-summary:3bb4:tasks:v1`, so no course reads or overwrites the other's data.
 
+Google Docs hosts a read-only published source for each course's Notes view. The public source
+content is owned and refreshed by Google Docs; this site only embeds the published viewer URLs and
+does not send credentials or edit requests to Google.
+
 ## 7. Automations
 
 The GitHub Actions Pages workflow runs on pushes to `master` and manual dispatch. No
@@ -76,6 +83,9 @@ other project automation or scheduled task is known.
   `src/app/page.tsx`, `src/components/course-header.tsx`, both tab rows, and automated tests.
 - Search parameter selection -> produced by the browser URL; consumed by `resolveSelection`; the
   resolved values produce active states and all navigation URLs.
+- Course-notes catalog -> produced by `src/lib/course-notes.ts`; consumed by `NotesViewer` and
+  selected by `CourseContent` when the resolved section is `notes`. Google Docs publishes the
+  embedded content independently; no project automation reads or writes the catalog.
 - Component class/attribute names -> produced by React components; consumed by `globals.css`.
 - Turbopack workspace root -> produced by `next.config.ts`; consumed by `next dev` and `next build` so unrelated parent lockfiles are ignored.
 - Project operating memory -> governed by `AGENTS.md` and indexed by `docs/ai/INDEX.md`.
