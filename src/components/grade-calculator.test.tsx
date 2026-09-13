@@ -69,7 +69,7 @@ describe("GradeCalculator", () => {
 });
 
 describe("CourseContent", () => {
-  it("shows the calculator only for 2Z03 Syllabus and Tasks only for 2Z03", () => {
+  it("selects 3BB4 content without changing the 2Z03 views", () => {
     const calculator = render(<CourseContent course="2Z03" section="syllabus" />);
     expect(screen.getByRole("region", { name: "Grade calculator" })).toBeInTheDocument();
 
@@ -83,5 +83,14 @@ describe("CourseContent", () => {
 
     calculator.rerender(<CourseContent course="2GA3" section="lectures" />);
     expect(screen.queryByRole("region", { name: "Tasks" })).not.toBeInTheDocument();
+
+    calculator.rerender(<CourseContent course="3BB4" section="syllabus" />);
+    expect(screen.getByRole("region", { name: "3BB4 grade calculator" })).toBeInTheDocument();
+
+    calculator.rerender(<CourseContent course="3BB4" section="lectures" />);
+    expect(screen.getByRole("region", { name: "3BB4 Tasks" })).toBeInTheDocument();
+
+    calculator.rerender(<CourseContent course="2Z03" section="syllabus" />);
+    expect(screen.getByRole("region", { name: "Grade calculator" })).toBeInTheDocument();
   });
 });
