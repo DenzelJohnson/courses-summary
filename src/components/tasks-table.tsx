@@ -2,11 +2,13 @@
 
 import { usePersistentTaskCompletions } from "@/hooks/use-persistent-task-completions";
 import { courseTasks, TASK_COMPLETION_STORAGE_KEY } from "@/lib/course-tasks";
+import { findLatestCurrentTaskId } from "@/lib/task-timeline";
 
 const taskIds = courseTasks.map((task) => task.id);
 
 export function TasksTable() {
   const { completed, toggle } = usePersistentTaskCompletions(TASK_COMPLETION_STORAGE_KEY, taskIds);
+  const currentTaskId = findLatestCurrentTaskId(courseTasks, new Date());
 
   return (
     <main className="course-content" aria-label="Course content">
@@ -23,8 +25,14 @@ export function TasksTable() {
           <tbody>
             {courseTasks.map((task) => {
               const isCompleted = completed[task.id] === true;
+              const rowClassName = [
+                task.type !== "Lecture" ? "task-row--assessment" : "",
+                task.id === currentTaskId ? "task-row--current" : "",
+              ]
+                .filter(Boolean)
+                .join(" ");
               return (
-                <tr key={task.id}>
+                <tr className={rowClassName} key={task.id}>
                   <td>{task.type}</td>
                   <td>{task.name}</td>
                   <td>{task.date}</td>

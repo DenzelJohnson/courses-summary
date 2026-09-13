@@ -1,5 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { TASK_COMPLETION_STORAGE_KEY } from "@/lib/course-tasks";
 import { TasksTable } from "./tasks-table";
 
@@ -36,5 +36,22 @@ describe("TasksTable", () => {
         "Completed",
       ),
     );
+  });
+
+  it("emphasizes assessed work and marks the latest dated task", () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date(2026, 8, 13));
+    render(<TasksTable />);
+
+    expect(screen.getByText("Assignment 1").closest("tr")).toHaveClass(
+      "task-row--assessment",
+    );
+    expect(
+      screen.getByText("Lecture 1 · 1 Introduction, 1.1 Definitions and terminology").closest("tr"),
+    ).not.toHaveClass("task-row--assessment");
+    expect(screen.getByText("Lecture 2 · 1.2 Initial value problems").closest("tr")).toHaveClass(
+      "task-row--current",
+    );
+    vi.useRealTimers();
   });
 });
