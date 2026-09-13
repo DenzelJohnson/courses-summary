@@ -128,6 +128,19 @@ a {
   padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4.25vw, 5.75rem) 5rem;
 }
 
+.notes-viewer {
+  min-height: calc(100dvh - 13.75rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem) clamp(1.25rem, 4.25vw, 5.75rem) 2rem;
+}
+
+.notes-viewer__frame {
+  display: block;
+  width: 100%;
+  min-height: calc(100dvh - 19.25rem);
+  border: 0;
+  background: #fff;
+}
+
 .grade-calculator {
   width: min(100%, 70rem);
   margin: 0 auto;
