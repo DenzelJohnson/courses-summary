@@ -8,6 +8,7 @@ const assignments: readonly CourseTask[] = [1, 2, 3].map((number) => ({
   name: `Assignment ${number}`,
   date: "TBD",
   sortOrder: number,
+  calendarDate: null,
 }));
 
 const lectures: readonly CourseTask[] = Array.from({ length: 18 }, (_, index) => ({
@@ -16,6 +17,7 @@ const lectures: readonly CourseTask[] = Array.from({ length: 18 }, (_, index) =>
   name: `Lecture ${index + 1}`,
   date: "TBD",
   sortOrder: index + 6,
+  calendarDate: null,
 }));
 
 export const threeBB4Tasks: readonly CourseTask[] = [
@@ -26,7 +28,15 @@ export const threeBB4Tasks: readonly CourseTask[] = [
     name: "Midterm",
     date: "Week of Oct 19–23 · 20:00",
     sortOrder: 4,
+    calendarDate: 20261023,
   },
-  { id: "final-exam", type: "Exam", name: "Final Exam", date: "TBD", sortOrder: 5 },
+  {
+    id: "final-exam",
+    type: "Exam",
+    name: "Final Exam",
+    date: "TBD",
+    sortOrder: 5,
+    calendarDate: null,
+  },
   ...lectures,
 ];
