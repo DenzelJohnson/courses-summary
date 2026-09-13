@@ -1,6 +1,6 @@
 # Task: Embed published course notes
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-09-13
 - Updated: 2026-09-13
 
@@ -32,7 +32,9 @@ Plan: `docs/superpowers/plans/2026-09-13-course-notes-embeds.md`.
 Automate Pipeline is authorized to choose routine implementation, review, integration, and Pages
 publication steps without further approval checkpoints.
 
-Implementation is complete on `codex/course-notes-embeds`. The public mapping is covered by a
-catalog test and the router tests every course's Notes iframe; 17 Vitest files / 50 tests and the
-static production build pass. Local browser checks confirm all three published Google Docs frames
-load at their respective Notes URLs. Independent review and GitHub Pages publication remain.
+The public mapping is covered by a catalog test and the router tests every course's Notes iframe;
+17 Vitest files / 50 tests and the static production build pass. Independent review found no
+issues. Local and deployed browser checks confirm all three published Google Docs frames load at
+their respective Notes URLs. The feature was merged and published on `master` as `f82c536`.
+GitHub Pages workflow [34774933276](https://github.com/DenzelJohnson/courses-summary/actions/runs/34774933276)
+succeeded on 2026-09-13.

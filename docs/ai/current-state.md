@@ -20,7 +20,9 @@ and verified live.
 - 2Z03 and 3BB4 Tasks: a bright purple divider follows the final table-ordered dated task on or
   before the browser's local calendar day; `TBD` tasks do not participate. Assignment, Lab,
   Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
-- All 2GA3 content areas and 3BB4 Notes: blank.
+- Every Notes tab shows its matching public, read-only Google Docs publication in a responsive
+  embedded viewer. Google Docs refreshes the published source independently.
+- 2GA3 Syllabus and Tasks remain blank.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
 
 ## Deployment
@@ -47,4 +49,9 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   local and live browser checks confirm the 2Z03 current-task divider and both tables' assessment
   emphasis. GitHub Actions Pages workflow
   [34773465419](https://github.com/DenzelJohnson/courses-summary/actions/runs/34773465419) succeeded
+  on 2026-09-13.
+- Notes-embed feature evidence: 17 Vitest files and 50 tests pass; static export passes;
+  independent review found no issues; local and live browser checks confirm the 2Z03, 2GA3, and
+  3BB4 published Docs frames. GitHub Actions Pages workflow
+  [34774933276](https://github.com/DenzelJohnson/courses-summary/actions/runs/34774933276) succeeded
   on 2026-09-13.
