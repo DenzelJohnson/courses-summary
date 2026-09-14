@@ -8,11 +8,12 @@ _Last updated: 2026-09-13 by Codex_
 ## 1. Overview
 
 This repository contains a Next.js course-summary interface and its tool-neutral project memory.
-The main page exposes course navigation for 2Z03, 2GA3, and 3BB4; each course contains Syllabus,
+The main page exposes course navigation for 2Z03, 2DA4, and 3BB4; each course contains Syllabus,
 Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
-contains a fixed course schedule with saved completion states. The 3BB4 Syllabus has its own
-persisted calculator and Tasks view. Each Notes view renders its course's public, read-only Google
-Docs publication; the 2GA3 Syllabus and Tasks selections remain empty.
+contains a fixed course schedule with saved completion states. The 2DA4 Syllabus contains a
+persisted weighted grade calculator and its Tasks view contains a fixed assessment schedule with
+saved completion states. The 3BB4 Syllabus has its own persisted calculator and Tasks view. Each
+Notes view renders its course's public, read-only Google Docs publication.
 
 ## 2. Tech Stack
 
@@ -48,8 +49,13 @@ Docs publication; the 2GA3 Syllabus and Tasks selections remain empty.
 | `src/lib/3bb4-grade-calculator.ts` | Validate versioned 3BB4 marks and calculate current grade with MSAF final-weight transfer | 3BB4 grade state | Pure current grade |
 | `src/hooks/use-persistent-3bb4-grade-state.ts` | Restore and save 3BB4 grade state in browser storage | 3BB4 grade state and browser storage | Versioned 3BB4 grade state |
 | `src/components/3bb4-grade-calculator.tsx` | Render 3BB4 mark inputs, MSAF controls, and current grade | 3BB4 grade state | Saved grade state and calculator UI |
+| `src/lib/2da4-grade-calculator.ts` | Validate versioned 2DA4 marks and calculate the straightforward weighted current grade | 2DA4 grade state | Pure current grade |
+| `src/hooks/use-persistent-2da4-grade-state.ts` | Restore and save 2DA4 grade state in browser storage | 2DA4 grade state and browser storage | Versioned 2DA4 grade state |
+| `src/components/2da4-grade-calculator.tsx` | Render 2DA4 assignment, lab, midterm, and final inputs and current grade | 2DA4 grade state | Saved grade state and calculator UI |
 | `src/lib/3bb4-tasks.ts` | Define fixed 23-row 3BB4 task data and completion storage key | None | Typed 3BB4 task rows and storage key |
 | `src/components/3bb4-tasks-table.tsx` | Render 3BB4 task table and saved checklist state | 3BB4 task rows and completion map | Checklist table UI |
+| `src/lib/2da4-tasks.ts` | Define fixed 2DA4 assessment task data and completion storage key | None | Typed 2DA4 task rows and storage key |
+| `src/components/2da4-tasks-table.tsx` | Render 2DA4 task table and saved checklist state | 2DA4 task rows and completion map | Checklist table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
@@ -70,7 +76,8 @@ separate versioned 2Z03 key. 3BB4 uses `courses-summary:3bb4:grades:v1` and
 
 Google Docs hosts a read-only published source for each course's Notes view. The public source
 content is owned and refreshed by Google Docs; this site only embeds the published viewer URLs and
-does not send credentials or edit requests to Google.
+does not send credentials or edit requests to Google. Browser `localStorage` stores 2DA4 marks under
+`courses-summary:2da4:grades:v1` and task completion state under `courses-summary:2da4:tasks:v1`.
 
 ## 7. Automations
 
@@ -104,6 +111,12 @@ other project automation or scheduled task is known.
 - 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed only by the 3BB4 Tasks table and the
   keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
   and it must not affect the 2Z03 task schedule.
+- 2DA4 grade-state contract -> produced by 2DA4 calculator inputs and `localStorage`; consumed by
+  `2da4-grade-calculator.ts`, its persistence hook, and result display. It uses a distinct storage
+  key and has no producer or consumer outside the browser.
+- 2DA4 task contract -> produced by `2da4-tasks.ts`; consumed only by the 2DA4 Tasks table and the
+  keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
+  and it must not affect the 2Z03 or 3BB4 task schedules.
 - Task-timeline contract -> produced by both course task modules and the browser's local date;
   consumed by both Tasks tables to add a non-persistent divider class. GitHub Pages and task
   completion storage do not read or write this derived UI state.
