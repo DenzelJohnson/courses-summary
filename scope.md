@@ -11,8 +11,8 @@ This repository contains a Next.js course-summary interface and its tool-neutral
 The main page exposes course navigation for 2Z03, 2DA4, and 3BB4; each course contains Syllabus,
 Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
 contains a fixed course schedule with saved completion states. The 2DA4 Syllabus contains a
-persisted weighted grade calculator and its Tasks view contains a fixed assessment schedule with
-saved completion states. The 3BB4 Syllabus has its own persisted calculator and Tasks view. Each
+persisted weighted grade calculator and its Tasks view contains a fixed Fall 2026 assessment and
+lecture schedule with saved completion states. The 3BB4 Syllabus has its own persisted calculator and Tasks view. Each
 Notes view renders its course's public, read-only Google Docs publication.
 
 ## 2. Tech Stack
@@ -54,7 +54,7 @@ Notes view renders its course's public, read-only Google Docs publication.
 | `src/components/2da4-grade-calculator.tsx` | Render 2DA4 assignment, lab, midterm, and final inputs and current grade | 2DA4 grade state | Saved grade state and calculator UI |
 | `src/lib/3bb4-tasks.ts` | Define fixed 23-row 3BB4 task data and completion storage key | None | Typed 3BB4 task rows and storage key |
 | `src/components/3bb4-tasks-table.tsx` | Render 3BB4 task table and saved checklist state | 3BB4 task rows and completion map | Checklist table UI |
-| `src/lib/2da4-tasks.ts` | Define fixed 2DA4 assessment task data and completion storage key | None | Typed 2DA4 task rows and storage key |
+| `src/lib/2da4-tasks.ts` | Define fixed Fall 2026 2DA4 assessment and lecture task data and completion storage key | None | Typed 2DA4 task rows and storage key |
 | `src/components/2da4-tasks-table.tsx` | Render 2DA4 task table and saved checklist state | 2DA4 task rows and completion map | Checklist table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
