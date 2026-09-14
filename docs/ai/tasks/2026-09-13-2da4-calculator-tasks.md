@@ -8,8 +8,8 @@ alternate schemes are included.
 
 ## Status
 
-Implementation and verification are complete in the `codex/2da4-calculator-tasks` worktree. The
-feature is ready for integration into `master`.
+Implementation and verification are complete. The feature is merged into local `master` as
+`1124a60`.
 
 ## Evidence
 
@@ -22,5 +22,6 @@ feature is ready for integration into `master`.
 
 ## Next action
 
-Integrate the feature branch into `master`, then push the authorized GitHub Pages deployment target
-and verify the workflow result.
+Retry `git push origin master` after GitHub access to `DenzelJohnson/courses-summary` is restored;
+the current attempt returned HTTP 403 (`Permission to DenzelJohnson/courses-summary.git denied to
+denzel-johnson_gale`).
