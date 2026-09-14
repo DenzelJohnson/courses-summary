@@ -8,8 +8,8 @@ alternate schemes are included.
 
 ## Status
 
-Implementation and verification are complete. The feature is merged into local `master` as
-`1124a60`.
+Implementation and verification are complete. The feature is merged into local `master`; the latest
+wording correction is `78b2bd5`.
 
 ## Evidence
 
