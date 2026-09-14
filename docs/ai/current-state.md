@@ -62,7 +62,9 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
 - 2DA4 calculator/tasks feature evidence: 22 Vitest files and 60 tests pass; static production build
   succeeds. The calculator persists 12 validated marks with 10% assignments, 10% labs, 30% Midterm
   1, and 50% Final Exam. The Tasks view persists all 10 supplied assessment rows.
-- The 2DA4 feature is merged into local `master` (latest commit `78b2bd5`) and verified there. Publishing
-  is blocked because `git push origin master` returned GitHub HTTP 403 for the configured account.
+- The 2DA4 feature is published from `master` using the `DenzelJohnson` GitHub account; the prior
+  `denzel-johnson_gale` HTTP 403 is resolved.
 - 2DA4 lecture-schedule feature evidence: 22 Vitest files and 61 tests pass; static production build
   succeeds. The 37 lectures are dated from Sep 9 through Dec 9, 2026, with no rows in the Oct 12–18 break.
+  GitHub Pages workflow [34808468985](https://github.com/DenzelJohnson/courses-summary/actions/runs/34808468985)
+  built and deployed successfully on 2026-09-14.

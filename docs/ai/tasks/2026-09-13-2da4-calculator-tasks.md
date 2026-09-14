@@ -9,9 +9,8 @@ September 9 through December 9, excluding October 12–18, plus the original 10 
 
 ## Status
 
-Implementation and verification are complete. The feature is merged into local `master`; the latest
-wording correction is `78b2bd5`. The lecture-schedule change is implemented in the
-`codex/2da4-lectures` worktree and has passed full verification; it is ready for integration and deployment.
+Implementation and verification are complete. The lecture schedule is merged into `master` and
+published through GitHub Pages workflow `34808468985`.
 
 ## Evidence
 
@@ -25,5 +24,4 @@ wording correction is `78b2bd5`. The lecture-schedule change is implemented in t
 
 ## Next action
 
-Merge the lecture-schedule branch into `master`, push it using the active `DenzelJohnson` GitHub
-account, and verify the Pages workflow.
+None.
