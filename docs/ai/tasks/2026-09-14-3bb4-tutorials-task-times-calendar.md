@@ -9,8 +9,8 @@ an immediate pre-submission confirmation.
 
 ## Status
 
-Dashboard implementation and local verification are complete on `codex/3bb4-tutorials-and-times`.
-Publishing to `master` and the Notion Calendar write remain pending.
+The dashboard implementation is merged into `master` and published through GitHub Pages workflow
+`34809537593`. The Notion Calendar write remains pending.
 
 ## Evidence
 
@@ -20,6 +20,8 @@ Publishing to `master` and the Notion Calendar write remain pending.
 - Next.js static production build: passing.
 - Independent review found and the implementation now covers an out-of-order task-date regression
   in the current-task divider.
+- GitHub Pages workflow [34809537593](https://github.com/DenzelJohnson/courses-summary/actions/runs/34809537593)
+  built and deployed successfully on 2026-09-14.
 
 ## External State
 
@@ -30,5 +32,4 @@ Publishing to `master` and the Notion Calendar write remain pending.
 
 ## Next action
 
-Merge the verified dashboard branch, push `master`, confirm the Pages deployment, then ask for
-the immediate confirmation required before creating the calendar events.
+Ask for the immediate confirmation required before creating the calendar events.

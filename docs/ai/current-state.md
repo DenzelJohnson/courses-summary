@@ -72,4 +72,6 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   GitHub Pages workflow [34808468985](https://github.com/DenzelJohnson/courses-summary/actions/runs/34808468985)
   built and deployed successfully on 2026-09-14.
 - 3BB4 tutorials/task-time display feature evidence: 23 Vitest files and 67 tests pass; static
-  production build succeeds. Publishing is pending from `codex/3bb4-tutorials-and-times`.
+  production build succeeds. GitHub Pages workflow
+  [34809537593](https://github.com/DenzelJohnson/courses-summary/actions/runs/34809537593) built
+  and deployed successfully on 2026-09-14.
