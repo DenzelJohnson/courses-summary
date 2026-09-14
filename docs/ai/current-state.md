@@ -15,13 +15,14 @@ and verified live.
 - 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
 - 2DA4 Syllabus: saved weighted grade calculator with five assignments at 2% each, five labs at
   2% each, a 30% Midterm 1, and a 50% Final Exam.
-- 2DA4 Tasks: saved 10-row chronological assessment checklist covering Labs 1–5, Assignments 1–4,
-  and Midterm 1.
+- 2DA4 Tasks: saved 47-row chronological schedule covering 37 Monday/Wednesday/Friday lectures,
+  Labs 1–5, Assignments 1–4, and Midterm 1. It skips the October 12–18 Fall Break and ends on
+  Wednesday, December 9.
 - 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
   and assignment/midterm MSAF controls that transfer weight to a saved final mark.
 - 3BB4 Tasks: saved 23-row checklist with three assignments, a midterm, final exam, and Lectures
   1–18. Unknown dates are `TBD`.
-- 2Z03 and 3BB4 Tasks: a bright purple divider follows the final table-ordered dated task on or
+- 2Z03, 2DA4, and 3BB4 Tasks: a bright purple divider follows the final table-ordered dated task on or
   before the browser's local calendar day; `TBD` tasks do not participate. Assignment, Lab,
   Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
 - Every Notes tab shows its matching public, read-only Google Docs publication in a responsive
@@ -63,3 +64,5 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   1, and 50% Final Exam. The Tasks view persists all 10 supplied assessment rows.
 - The 2DA4 feature is merged into local `master` (latest commit `78b2bd5`) and verified there. Publishing
   is blocked because `git push origin master` returned GitHub HTTP 403 for the configured account.
+- 2DA4 lecture-schedule feature evidence: 22 Vitest files and 61 tests pass; static production build
+  succeeds. The 37 lectures are dated from Sep 9 through Dec 9, 2026, with no rows in the Oct 12–18 break.
