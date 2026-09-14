@@ -22,11 +22,11 @@ existing 2Z03 and 3BB4 views.
   - Lab 2 — Mon, Oct 5 · 14:30–17:20
   - Assignment 1 — Mon, Oct 5 · 23:00 via Avenue
   - Assignment 2 — Mon, Oct 26
-  - Lab 3 — Week of Oct 26
+  - Lab 3 — Weeks of Oct 26
   - Midterm 1 — Fri, Nov 6 · 17:30–19:30
-  - Lab 4 — Week of Nov 9 · 14:30–17:20
+  - Lab 4 — Weeks of Nov 9 · 14:30–17:20
   - Assignment 3 — Mon, Nov 16 (extra week due to Midterm)
-  - Lab 5 — Week of Nov 23 · 14:30–17:20
+  - Lab 5 — Weeks of Nov 23 · 14:30–17:20
   - Assignment 4 — Mon, Nov 30
 - Week-based rows use their week’s Monday as the timeline anchor. Rows without a supplied time
   display the date or week text without inventing a time.

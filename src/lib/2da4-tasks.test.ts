@@ -23,6 +23,10 @@ describe("twoDA4Tasks", () => {
     expect(twoDA4Tasks.find((task) => task.id === "assignment-3")).toMatchObject({
       date: "Mon, Nov 16 · extra week due to Midterm",
     });
+    expect(twoDA4Tasks.find((task) => task.id === "lab-3")?.date).toBe("Weeks of Oct 26");
+    expect(twoDA4Tasks.find((task) => task.id === "lab-4")?.date).toBe(
+      "Weeks of Nov 9 · 14:30–17:20",
+    );
     expect(twoDA4Tasks.find((task) => task.id === "lab-3")?.calendarDate).toBe(20261026);
     expect(twoDA4Tasks.find((task) => task.id === "lab-4")?.calendarDate).toBe(20261109);
     expect(TWO_DA4_TASK_COMPLETION_STORAGE_KEY).toBe("courses-summary:2da4:tasks:v1");
