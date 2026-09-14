@@ -147,7 +147,7 @@ saved-value restoration, and unchanged blank states for the other course/section
 
 ## Out of Scope
 
-- Content for 2GA3, 3BB4, Lectures, or Notes
+- Content for 2DA4, 3BB4, Lectures, or Notes
 - Required-final-grade projections or letter-grade conversion
 - Cross-device synchronization, accounts, databases, or analytics
 - Editing grading weights or adding assessment rows

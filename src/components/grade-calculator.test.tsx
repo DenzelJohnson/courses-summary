@@ -77,11 +77,11 @@ describe("CourseContent", () => {
     expect(screen.getByRole("region", { name: "Tasks" })).toBeInTheDocument();
     expect(screen.queryByRole("region", { name: "Grade calculator" })).not.toBeInTheDocument();
 
-    calculator.rerender(<CourseContent course="2GA3" section="syllabus" />);
+    calculator.rerender(<CourseContent course="2DA4" section="syllabus" />);
     expect(screen.queryByRole("region", { name: "Grade calculator" })).not.toBeInTheDocument();
     expect(screen.getByRole("main", { name: "Course content" })).toBeInTheDocument();
 
-    calculator.rerender(<CourseContent course="2GA3" section="lectures" />);
+    calculator.rerender(<CourseContent course="2DA4" section="lectures" />);
     expect(screen.queryByRole("region", { name: "Tasks" })).not.toBeInTheDocument();
 
     calculator.rerender(<CourseContent course="3BB4" section="syllabus" />);
@@ -103,8 +103,8 @@ describe("CourseContent", () => {
     );
     expect(screen.queryByRole("main", { name: "Course content" })).not.toBeInTheDocument();
 
-    content.rerender(<CourseContent course="2GA3" section="notes" />);
-    expect(screen.getByTitle("2GA3 notes")).toHaveAttribute(
+    content.rerender(<CourseContent course="2DA4" section="notes" />);
+    expect(screen.getByTitle("2DA4 notes")).toHaveAttribute(
       "src",
       expect.stringContaining("2PACX-1vRhv5D"),
     );

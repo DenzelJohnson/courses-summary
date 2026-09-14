@@ -7,14 +7,14 @@
 ## Objective
 
 Add isolated, saved 3BB4 Syllabus grade calculation and a 23-row Tasks checklist without changing
-2Z03 or adding content to 2GA3.
+2Z03 or adding content to 2DA4.
 
 ## Scope
 
 Included: 3BB4 assessment marks, assignment/midterm MSAF state with final-weight transfer, current
 grade, separate browser storage, three assignments, one midterm, one final exam, eighteen undated
 lectures, saved completion state, test/build/browser verification, and GitHub Pages publication.
-Excluded: inferred dates, editable tasks, new 2Z03 behavior, and 2GA3 content.
+Excluded: inferred dates, editable tasks, new 2Z03 behavior, and 2DA4 content.
 
 ## Current Checkpoint
 

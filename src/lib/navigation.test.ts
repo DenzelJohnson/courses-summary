@@ -23,7 +23,7 @@ describe("resolveSelection", () => {
 
 describe("buildHref", () => {
   it("creates a bookmarkable course and section URL", () => {
-    expect(buildHref("2GA3", "lectures")).toBe("/?course=2GA3&section=lectures");
+    expect(buildHref("2DA4", "lectures")).toBe("/?course=2DA4&section=lectures");
   });
 
   it("keeps the stable lectures URL while displaying Tasks", () => {

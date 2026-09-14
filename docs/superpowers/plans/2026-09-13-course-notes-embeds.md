@@ -31,7 +31,7 @@ import { courseNotes } from "./course-notes";
 describe("courseNotes", () => {
   it("maps every course to a public Google Docs embed URL", () => {
     expect(courseNotes["2Z03"].embedUrl).toContain("2PACX-1vTPcjq");
-    expect(courseNotes["2GA3"].embedUrl).toContain("2PACX-1vRhv5D");
+    expect(courseNotes["2DA4"].embedUrl).toContain("2PACX-1vRhv5D");
     expect(courseNotes["3BB4"].embedUrl).toContain("2PACX-1vTzW8e");
     expect(Object.values(courseNotes).every(({ embedUrl }) => embedUrl.endsWith("?embedded=true"))).toBe(true);
   });
@@ -89,7 +89,7 @@ describe("courseNotes", () => {
 
 - [ ] **Step 2: Request a read-only review against the branch base and resolve every Critical or Important finding.**
 
-- [ ] **Step 3: Start the app with `run-local-host`; inspect `/?course=2Z03&section=notes`, `/?course=2GA3&section=notes`, and `/?course=3BB4&section=notes`.** Expect a course-specific published Google Doc in each responsive viewer.
+- [ ] **Step 3: Start the app with `run-local-host`; inspect `/?course=2Z03&section=notes`, `/?course=2DA4&section=notes`, and `/?course=3BB4&section=notes`.** Expect a course-specific published Google Doc in each responsive viewer.
 
 - [ ] **Step 4: Merge the reviewed branch to `master`, rerun the complete test/build command, push, wait for the GitHub Pages workflow, and inspect all three live Notes views.**
 

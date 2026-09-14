@@ -46,7 +46,7 @@ The calculator, browser persistence, static navigation, and GitHub Pages workflo
 - Static export: Next.js build succeeds and `out/index.html` references `/courses-summary/_next/` assets when the deployment base path is set.
 - Browser: 85 on Assignment 1 and 70 on Midterm 1 produce 74.9%; refresh restores both values; final-exam Scheme II, missed-midterm disabling, blank views, zero console errors, and 390 px no-overflow layout are verified.
 - Feature commits: `043d330`, `da599a1`, `ff892fa`, `71244ad`, `764a65b`, and `d63e8ef`.
-- GitHub Pages run `34659436007` completed successfully. Live-site checks confirmed the 74.9% example, refresh persistence, blank 2GA3 Notes, and no browser console errors.
+- GitHub Pages run `34659436007` completed successfully. Live-site checks confirmed the 74.9% example, refresh persistence, blank 2DA4 Notes, and no browser console errors.
 - A root-only test-discovery regression test prevents nested `.worktrees/` from loading duplicate React dependencies.
 
 ## Risks and Handoff

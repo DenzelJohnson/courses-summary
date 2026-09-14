@@ -6,7 +6,7 @@
 
 ## Objective
 
-Replace the blank Notes view for 2Z03, 2GA3, and 3BB4 with the matching read-only published
+Replace the blank Notes view for 2Z03, 2DA4, and 3BB4 with the matching read-only published
 Google Doc.
 
 ## Scope
@@ -22,7 +22,7 @@ The user authorized public read-only publication and confirmed the final Google 
 three named documents. Google Docs now publishes the following viewer sources:
 
 - 2Z03: `2PACX-1vTPcjqEjkdf3KnqjxUyuRa6bqFgd7Cu2pK4NDW00KGFW7Wbkn5clI-nu_KSW8kjSLn3IN34Z8fJZ3nK`
-- 2GA3: `2PACX-1vRhv5DGQ60uuzZTgA-6b0OUh4FEhZ1B7e1iY0N6aEYU3zebhaoLnAmXmyZY8Z5CMPqhOJBip-dUIhAh`
+- 2DA4: `2PACX-1vRhv5DGQ60uuzZTgA-6b0OUh4FEhZ1B7e1iY0N6aEYU3zebhaoLnAmXmyZY8Z5CMPqhOJBip-dUIhAh`
 - 3BB4: `2PACX-1vTzW8evEt5CjYQUYniIiAQ-HcmK3g2q9VkSc2unLfI-VAn6moRMDhj7nKiN6OVDGoHVV7JaCZiWoQxQ`
 
 ## Current Checkpoint

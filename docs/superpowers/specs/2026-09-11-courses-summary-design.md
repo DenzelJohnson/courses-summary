@@ -6,7 +6,7 @@
 ## Objective
 
 Create a new Next.js course-summary interface with two levels of navigation. The primary level
-selects one of three courses: 2Z03, 2GA3, or 3BB4. The secondary level selects Syllabus, Lectures,
+selects one of three courses: 2Z03, 2DA4, or 3BB4. The secondary level selects Syllabus, Lectures,
 or Notes for the active course. All nine content views are intentionally blank in this first
 iteration.
 
@@ -17,7 +17,7 @@ will use their broad hierarchy: a spacious white header, a left-aligned identity
 upper-right primary navigation row, a thin divider, and a lower-right secondary navigation row.
 
 - The left identity label reads **Courses** with no subtitle.
-- The primary navigation contains **2Z03**, **2GA3**, and **3BB4**.
+- The primary navigation contains **2Z03**, **2DA4**, and **3BB4**.
 - The secondary navigation contains **Syllabus**, **Lectures**, and **Notes**.
 - Active items use a restrained burgundy treatment and a soft tinted pill.
 - Inactive items remain plain, legible text with clear hover and keyboard-focus states.
@@ -35,7 +35,7 @@ The page will use one App Router route with URL search parameters:
 /?course=2Z03&section=syllabus
 ```
 
-Valid course values are `2Z03`, `2GA3`, and `3BB4`. Valid section values are `syllabus`,
+Valid course values are `2Z03`, `2DA4`, and `3BB4`. Valid section values are `syllabus`,
 `lectures`, and `notes`. Missing or invalid values fall back to `2Z03` and `syllabus`. Selecting a
 course preserves the currently selected section; selecting a section preserves the current course.
 Because tabs are links, each combination can be bookmarked, opened in another tab, and used without

@@ -29,7 +29,7 @@ The existing Syllabus, Tasks, navigation, storage, and query-string contracts do
 Published sources:
 
 - 2Z03: `https://docs.google.com/document/d/e/2PACX-1vTPcjqEjkdf3KnqjxUyuRa6bqFgd7Cu2pK4NDW00KGFW7Wbkn5clI-nu_KSW8kjSLn3IN34Z8fJZ3nK/pub?embedded=true`
-- 2GA3: `https://docs.google.com/document/d/e/2PACX-1vRhv5DGQ60uuzZTgA-6b0OUh4FEhZ1B7e1iY0N6aEYU3zebhaoLnAmXmyZY8Z5CMPqhOJBip-dUIhAh/pub?embedded=true`
+- 2DA4: `https://docs.google.com/document/d/e/2PACX-1vRhv5DGQ60uuzZTgA-6b0OUh4FEhZ1B7e1iY0N6aEYU3zebhaoLnAmXmyZY8Z5CMPqhOJBip-dUIhAh/pub?embedded=true`
 - 3BB4: `https://docs.google.com/document/d/e/2PACX-1vTzW8evEt5CjYQUYniIiAQ-HcmK3g2q9VkSc2unLfI-VAn6moRMDhj7nKiN6OVDGoHVV7JaCZiWoQxQ/pub?embedded=true`
 
 ## Presentation and accessibility

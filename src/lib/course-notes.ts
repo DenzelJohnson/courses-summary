@@ -8,8 +8,8 @@ export const courseNotes: CourseNotes = {
     embedUrl:
       "https://docs.google.com/document/d/e/2PACX-1vTPcjqEjkdf3KnqjxUyuRa6bqFgd7Cu2pK4NDW00KGFW7Wbkn5clI-nu_KSW8kjSLn3IN34Z8fJZ3nK/pub?embedded=true",
   },
-  "2GA3": {
-    title: "2GA3 notes",
+  "2DA4": {
+    title: "2DA4 notes",
     embedUrl:
       "https://docs.google.com/document/d/e/2PACX-1vRhv5DGQ60uuzZTgA-6b0OUh4FEhZ1B7e1iY0N6aEYU3zebhaoLnAmXmyZY8Z5CMPqhOJBip-dUIhAh/pub?embedded=true",
   },

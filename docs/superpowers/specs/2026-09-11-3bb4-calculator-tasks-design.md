@@ -5,7 +5,7 @@
 ## Goal
 
 Add the requested 3BB4 course-specific content while retaining the existing navigation and leaving
-2Z03 and 2GA3 behavior unchanged. The 3BB4 Syllabus view receives a simple saved grade calculator;
+2Z03 and 2DA4 behavior unchanged. The 3BB4 Syllabus view receives a simple saved grade calculator;
 the 3BB4 Tasks view receives a saved checklist table.
 
 ## Grade Calculator
@@ -51,4 +51,4 @@ deployment to GitHub Pages.
 ## Out of Scope
 
 Task editing, inferred lecture dates, assignment/final dates beyond `TBD`, input for lecture marks,
-new grading schemes, changes to 2Z03, and any 2GA3-specific content are excluded.
+new grading schemes, changes to 2Z03, and any 2DA4-specific content are excluded.

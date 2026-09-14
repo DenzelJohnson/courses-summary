@@ -1,4 +1,4 @@
-export const courses = ["2Z03", "2GA3", "3BB4"] as const;
+export const courses = ["2Z03", "2DA4", "3BB4"] as const;
 export const sections = ["syllabus", "lectures", "notes"] as const;
 
 export type Course = (typeof courses)[number];

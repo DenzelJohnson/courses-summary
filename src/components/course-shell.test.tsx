@@ -16,11 +16,11 @@ describe("CourseShell", () => {
   });
 
   it("uses the URL selection and renders the selected blank section", () => {
-    useSearchParams.mockReturnValue(new URLSearchParams("course=2GA3&section=notes"));
+    useSearchParams.mockReturnValue(new URLSearchParams("course=2DA4&section=notes"));
 
     render(<CourseShell />);
 
-    expect(screen.getByRole("link", { name: "2GA3" })).toHaveAttribute(
+    expect(screen.getByRole("link", { name: "2DA4" })).toHaveAttribute(
       "aria-current",
       "page",
     );

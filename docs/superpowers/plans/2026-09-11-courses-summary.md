@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers-unlimited:subagent-driven-development (recommended) or superpowers-unlimited:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Establish portable repository memory and build a tested Next.js page with course tabs for 2Z03, 2GA3, and 3BB4, each containing Syllabus, Lectures, and Notes subtabs.
+**Goal:** Establish portable repository memory and build a tested Next.js page with course tabs for 2Z03, 2DA4, and 3BB4, each containing Syllabus, Lectures, and Notes subtabs.
 
 **Architecture:** A Next.js App Router page resolves course and section values from search parameters, then renders a two-row semantic header from immutable typed navigation configuration. Tool-neutral operating memory lives in `docs/ai/` and is loaded through root/provider instruction pointers; no external service or chat transcript is required to resume the work.
 
@@ -202,7 +202,7 @@ describe("resolveSelection", () => {
 
 describe("buildHref", () => {
   it("creates a bookmarkable course and section URL", () => {
-    expect(buildHref("2GA3", "lectures")).toBe("/?course=2GA3&section=lectures");
+    expect(buildHref("2DA4", "lectures")).toBe("/?course=2DA4&section=lectures");
   });
 });
 ```
@@ -220,7 +220,7 @@ Expected: FAIL because `./navigation` does not exist.
 - [ ] **Step 3: Implement the typed navigation contract**
 
 ```ts
-export const courses = ["2Z03", "2GA3", "3BB4"] as const;
+export const courses = ["2Z03", "2DA4", "3BB4"] as const;
 export const sections = ["syllabus", "lectures", "notes"] as const;
 
 export type Course = (typeof courses)[number];
@@ -292,12 +292,12 @@ import { CourseHeader } from "./course-header";
 
 describe("CourseHeader", () => {
   it("renders both navigation levels and preserves the other selection", () => {
-    render(<CourseHeader course="2GA3" section="notes" />);
+    render(<CourseHeader course="2DA4" section="notes" />);
 
     expect(screen.getByRole("heading", { name: "Courses" })).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Courses" })).toBeInTheDocument();
     expect(screen.getByRole("navigation", { name: "Course sections" })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "2GA3" })).toHaveAttribute("aria-current", "page");
+    expect(screen.getByRole("link", { name: "2DA4" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("link", { name: "Notes" })).toHaveAttribute("aria-current", "page");
     expect(screen.getByRole("link", { name: "3BB4" })).toHaveAttribute(
       "href",
@@ -305,7 +305,7 @@ describe("CourseHeader", () => {
     );
     expect(screen.getByRole("link", { name: "Lectures" })).toHaveAttribute(
       "href",
-      "/?course=2GA3&section=lectures",
+      "/?course=2DA4&section=lectures",
     );
   });
 });
@@ -442,7 +442,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Courses",
-  description: "Course summaries for 2Z03, 2GA3, and 3BB4",
+  description: "Course summaries for 2Z03, 2DA4, and 3BB4",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
@@ -501,7 +501,7 @@ port, and confirm the process owns the listener. Inspect these states in a brows
 
 ```text
 /?course=2Z03&section=syllabus
-/?course=2GA3&section=lectures
+/?course=2DA4&section=lectures
 /?course=3BB4&section=notes
 /?course=invalid&section=invalid
 ```

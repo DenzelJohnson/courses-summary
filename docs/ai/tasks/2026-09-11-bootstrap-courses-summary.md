@@ -18,7 +18,7 @@ Included: neutral/provider instructions, all required `docs/ai/` files, npm/Next
 ## Acceptance Criteria
 
 - A clean-room agent can find active work, authority, conflicts, recent changes, and the exact next action using repository files only.
-- The page labels itself **Courses** and exposes 2Z03, 2GA3, and 3BB4.
+- The page labels itself **Courses** and exposes 2Z03, 2DA4, and 3BB4.
 - Each course exposes Syllabus, Lectures, and Notes.
 - URL state is bookmarkable, invalid values default safely, and content stays blank.
 - Tests and the production build pass; desktop and narrow layouts are visually checked.

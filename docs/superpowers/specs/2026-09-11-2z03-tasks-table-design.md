@@ -5,7 +5,7 @@
 ## Goal
 
 Rename the secondary **Lectures** tab to **Tasks** and give only the 2Z03 Tasks view a compact,
-chronological course-summary table. The 2GA3 and 3BB4 Tasks views remain blank.
+chronological course-summary table. The 2DA4 and 3BB4 Tasks views remain blank.
 
 ## Interface
 
@@ -53,4 +53,4 @@ and a browser check verify the deployed behavior.
 ## Out of Scope
 
 Editing the schedule in the browser, filters, sorting controls, grade-calculator changes, task
-content for 2GA3/3BB4, and a final-exam date are excluded.
+content for 2DA4/3BB4, and a final-exam date are excluded.

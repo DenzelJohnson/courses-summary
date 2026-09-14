@@ -8,7 +8,7 @@ and verified live.
 ## Required Outcome
 
 - Identity label: **Courses**, with no subtitle.
-- Primary tabs: 2Z03, 2GA3, 3BB4.
+- Primary tabs: 2Z03, 2DA4, 3BB4.
 - Secondary tabs for every course: Syllabus, Lectures, Notes.
 - Default selection: 2Z03 and Syllabus.
 - 2Z03 Syllabus: saved grade calculator with Scheme I/II comparison.
@@ -22,7 +22,7 @@ and verified live.
   Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
 - Every Notes tab shows its matching public, read-only Google Docs publication in a responsive
   embedded viewer. Google Docs refreshes the published source independently.
-- 2GA3 Syllabus and Tasks remain blank.
+- 2DA4 Syllabus and Tasks remain blank.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
 
 ## Deployment
@@ -38,7 +38,7 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
 - Browser: calculation, saved-value refresh, both schemes, missed-midterm state, blank-view isolation, zero console errors, and 390 px layout verified; document width equals viewport width.
 - GitHub Actions Pages workflow run `34659436007`: build and deployment succeeded on 2026-09-11.
 - Tasks feature evidence: 34 tests pass; static export passes; browser confirms four table columns,
-  51 data rows, refresh persistence, blank 2GA3 Tasks, no console errors, and 390 px containment.
+  51 data rows, refresh persistence, blank 2DA4 Tasks, no console errors, and 390 px containment.
 - GitHub Actions Pages workflow run `34663726911`: build and deployment succeeded on 2026-09-11.
 - 3BB4 feature evidence: 15 Vitest files and 43 tests pass; static export passes; browser confirms
   calculator persistence, MSAF input disabling, 23 Tasks rows, saved checklist status, and 2Z03
@@ -51,7 +51,7 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   [34773465419](https://github.com/DenzelJohnson/courses-summary/actions/runs/34773465419) succeeded
   on 2026-09-13.
 - Notes-embed feature evidence: 17 Vitest files and 50 tests pass; static export passes;
-  independent review found no issues; local and live browser checks confirm the 2Z03, 2GA3, and
+  independent review found no issues; local and live browser checks confirm the 2Z03, 2DA4, and
   3BB4 published Docs frames. GitHub Actions Pages workflow
   [34774933276](https://github.com/DenzelJohnson/courses-summary/actions/runs/34774933276) succeeded
   on 2026-09-13.

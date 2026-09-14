@@ -266,7 +266,7 @@ git commit -m "feat: add saved 2z03 grade calculator"
 - [ ] **Step 1: Write a failing course-shell test**
 
 Mock `next/navigation` so `useSearchParams()` returns 2Z03 + syllabus; assert the calculator is
-visible. Return 2GA3 + syllabus and assert only the blank `main` landmark appears. Retain the
+visible. Return 2DA4 + syllabus and assert only the blank `main` landmark appears. Retain the
 existing header test to verify selection-preserving URLs.
 
 - [ ] **Step 2: Run and confirm RED**
@@ -375,7 +375,7 @@ keyboard focus, and no console errors.
 
 - [ ] **Step 3: Verify isolation and responsive layout**
 
-Confirm 2Z03 Lectures, 2GA3 Syllabus, and 3BB4 Syllabus remain blank. At 390 px, confirm all inputs
+Confirm 2Z03 Lectures, 2DA4 Syllabus, and 3BB4 Syllabus remain blank. At 390 px, confirm all inputs
 and results fit without horizontal overflow.
 
 - [ ] **Step 4: Run full verification and commit any test-driven corrections**
