@@ -85,6 +85,39 @@ const tasks: readonly CourseTask[] = [
   },
 ];
 
-export const twoDA4Tasks: readonly CourseTask[] = [...tasks].sort(
+const weekdayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+function createFall2026Lectures(): readonly CourseTask[] {
+  const lectures: CourseTask[] = [];
+  const start = Date.UTC(2026, 8, 9);
+  const end = Date.UTC(2026, 11, 9);
+
+  for (let time = start; time <= end; time += 86_400_000) {
+    const date = new Date(time);
+    const weekday = date.getUTCDay();
+    const month = date.getUTCMonth();
+    const day = date.getUTCDate();
+    const isLectureDay = weekday === 1 || weekday === 3 || weekday === 5;
+    const isFallBreak = month === 9 && day >= 12 && day <= 18;
+    if (!isLectureDay || isFallBreak) continue;
+
+    const calendarDate = 20260000 + (month + 1) * 100 + day;
+    lectures.push({
+      id: `lecture-${lectures.length + 1}`,
+      type: "Lecture",
+      name: `Lecture ${lectures.length + 1}`,
+      date: `${weekdayLabels[weekday]}, ${monthLabels[month]} ${day}`,
+      sortOrder: calendarDate * 10_000 + 1200,
+      calendarDate,
+    });
+  }
+
+  return lectures;
+}
+
+const lectureTasks = createFall2026Lectures();
+
+export const twoDA4Tasks: readonly CourseTask[] = [...lectureTasks, ...tasks].sort(
   (left, right) => left.sortOrder - right.sortOrder,
 );
