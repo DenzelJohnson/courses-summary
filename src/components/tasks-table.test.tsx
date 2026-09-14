@@ -54,4 +54,11 @@ describe("TasksTable", () => {
     );
     vi.useRealTimers();
   });
+
+  it("uses 12-hour times in the date column", () => {
+    render(<TasksTable />);
+
+    expect(screen.getByText("Thu, Sep 24 · 11:59 PM")).toBeInTheDocument();
+    expect(screen.queryByText("Thu, Sep 24 · 23:59")).not.toBeInTheDocument();
+  });
 });

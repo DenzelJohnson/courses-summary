@@ -2,6 +2,7 @@
 
 import { usePersistentTaskCompletions } from "@/hooks/use-persistent-task-completions";
 import { courseTasks, TASK_COMPLETION_STORAGE_KEY } from "@/lib/course-tasks";
+import { formatTaskDate } from "@/lib/task-date";
 import { findLatestCurrentTaskId } from "@/lib/task-timeline";
 
 const taskIds = courseTasks.map((task) => task.id);
@@ -35,7 +36,7 @@ export function TasksTable() {
                 <tr className={rowClassName} key={task.id}>
                   <td>{task.type}</td>
                   <td>{task.name}</td>
-                  <td>{task.date}</td>
+                  <td>{formatTaskDate(task.date)}</td>
                   <td>
                     <button
                       aria-label={`Mark ${task.name} ${isCompleted ? "incomplete" : "completed"}`}

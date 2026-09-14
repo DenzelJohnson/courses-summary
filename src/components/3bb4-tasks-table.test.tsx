@@ -6,10 +6,11 @@ import { ThreeBB4TasksTable } from "./3bb4-tasks-table";
 describe("ThreeBB4TasksTable", () => {
   beforeEach(() => localStorage.clear());
 
-  it("renders 23 3BB4 tasks and persists completion", async () => {
+  it("renders 35 3BB4 tasks and persists completion", async () => {
     render(<ThreeBB4TasksTable />);
 
-    expect(screen.getAllByRole("row")).toHaveLength(24);
+    expect(screen.getAllByRole("row")).toHaveLength(36);
+    expect(screen.getByText("Tutorial 12")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Mark Lecture 18 completed" }));
 
     await waitFor(() =>
@@ -28,9 +29,17 @@ describe("ThreeBB4TasksTable", () => {
       "task-row--assessment",
     );
     expect(screen.getByText("Lecture 1").closest("tr")).not.toHaveClass("task-row--assessment");
+    expect(screen.getByText("Tutorial 1").closest("tr")).not.toHaveClass("task-row--assessment");
     expect(screen.getAllByText("Midterm")[1].closest("tr")).not.toHaveClass(
       "task-row--current",
     );
     vi.useRealTimers();
+  });
+
+  it("uses 12-hour times in the date column", () => {
+    render(<ThreeBB4TasksTable />);
+
+    expect(screen.getByText("Week of Oct 19–23 · 8:00 PM")).toBeInTheDocument();
+    expect(screen.queryByText("Week of Oct 19–23 · 20:00")).not.toBeInTheDocument();
   });
 });

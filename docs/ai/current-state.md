@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-13_
+_Verified: 2026-09-14 (branch verification; publication pending)_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -20,11 +20,14 @@ and verified live.
   Wednesday, December 9.
 - 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
   and assignment/midterm MSAF controls that transfer weight to a saved final mark.
-- 3BB4 Tasks: saved 23-row checklist with three assignments, a midterm, final exam, and Lectures
-  1–18. Unknown dates are `TBD`.
+- 3BB4 Tasks: saved 35-row checklist with three assignments, a midterm, final exam, Lectures 1–18,
+  and Tutorials 1–12 on Tuesdays from September 15 through December 8, excluding Fall Break.
+  Unknown dates are `TBD`.
 - 2Z03, 2DA4, and 3BB4 Tasks: a bright purple divider follows the final table-ordered dated task on or
   before the browser's local calendar day; `TBD` tasks do not participate. Assignment, Lab,
   Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
+- Every Tasks Date column renders stored times in 12-hour AM/PM notation; this display-only
+  formatting does not alter task order, calendar anchors, or saved checklist state.
 - Every Notes tab shows its matching public, read-only Google Docs publication in a responsive
   embedded viewer. Google Docs refreshes the published source independently.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
@@ -68,3 +71,5 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   succeeds. The 37 lectures are dated from Sep 9 through Dec 9, 2026, with no rows in the Oct 12–18 break.
   GitHub Pages workflow [34808468985](https://github.com/DenzelJohnson/courses-summary/actions/runs/34808468985)
   built and deployed successfully on 2026-09-14.
+- 3BB4 tutorials/task-time display feature evidence: 23 Vitest files and 66 tests pass; static
+  production build succeeds. Publishing is pending from `codex/3bb4-tutorials-and-times`.

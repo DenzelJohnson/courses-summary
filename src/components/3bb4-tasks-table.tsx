@@ -5,6 +5,7 @@ import {
   THREE_BB4_TASK_COMPLETION_STORAGE_KEY,
   threeBB4Tasks,
 } from "@/lib/3bb4-tasks";
+import { formatTaskDate } from "@/lib/task-date";
 import { findLatestCurrentTaskId } from "@/lib/task-timeline";
 
 const taskIds = threeBB4Tasks.map((task) => task.id);
@@ -41,7 +42,7 @@ export function ThreeBB4TasksTable() {
                 <tr className={rowClassName} key={task.id}>
                   <td>{task.type}</td>
                   <td>{task.name}</td>
-                  <td>{task.date}</td>
+                  <td>{formatTaskDate(task.date)}</td>
                   <td>
                     <button
                       aria-label={`Mark ${task.name} ${isCompleted ? "incomplete" : "completed"}`}
