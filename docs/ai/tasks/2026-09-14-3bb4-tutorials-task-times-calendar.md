@@ -16,8 +16,10 @@ Publishing to `master` and the Notion Calendar write remain pending.
 
 - Shared date-format tests cover 23:59, 14:30–17:20, 20:00, and undated rows.
 - 3BB4 task-data tests enumerate Tutorial 1–12 and prove October 13 is absent.
-- Full Vitest suite: 23 files, 66 tests passing.
+- Full Vitest suite: 23 files, 67 tests passing.
 - Next.js static production build: passing.
+- Independent review found and the implementation now covers an out-of-order task-date regression
+  in the current-task divider.
 
 ## External State
 

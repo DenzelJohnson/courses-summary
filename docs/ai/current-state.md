@@ -71,5 +71,5 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   succeeds. The 37 lectures are dated from Sep 9 through Dec 9, 2026, with no rows in the Oct 12–18 break.
   GitHub Pages workflow [34808468985](https://github.com/DenzelJohnson/courses-summary/actions/runs/34808468985)
   built and deployed successfully on 2026-09-14.
-- 3BB4 tutorials/task-time display feature evidence: 23 Vitest files and 66 tests pass; static
+- 3BB4 tutorials/task-time display feature evidence: 23 Vitest files and 67 tests pass; static
   production build succeeds. Publishing is pending from `codex/3bb4-tutorials-and-times`.

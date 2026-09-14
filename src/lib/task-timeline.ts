@@ -7,8 +7,13 @@ function toCalendarDate(now: Date) {
 export function findLatestCurrentTaskId(tasks: readonly CourseTask[], now: Date): string | null {
   const currentDate = toCalendarDate(now);
 
-  return tasks.reduce<string | null>((latestId, task) => {
-    if (task.calendarDate === null || task.calendarDate === undefined) return latestId;
-    return task.calendarDate <= currentDate ? task.id : latestId;
+  const latestTask = tasks.reduce<CourseTask | null>((latest, task) => {
+    if (task.calendarDate === null || task.calendarDate === undefined) return latest;
+    if (task.calendarDate > currentDate) return latest;
+    if (latest === null || task.calendarDate >= (latest.calendarDate ?? 0)) return task;
+
+    return latest;
   }, null);
+
+  return latestTask?.id ?? null;
 }
