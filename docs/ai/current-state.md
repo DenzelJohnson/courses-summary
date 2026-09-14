@@ -13,6 +13,10 @@ and verified live.
 - Default selection: 2Z03 and Syllabus.
 - 2Z03 Syllabus: saved grade calculator with Scheme I/II comparison.
 - 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
+- 2DA4 Syllabus: saved weighted grade calculator with five assignments at 2% each, five labs at
+  2% each, a 30% Midterm 1, and a 50% Final Exam.
+- 2DA4 Tasks: saved 10-row chronological assessment checklist covering Labs 1–5, Assignments 1–4,
+  and Midterm 1.
 - 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
   and assignment/midterm MSAF controls that transfer weight to a saved final mark.
 - 3BB4 Tasks: saved 23-row checklist with three assignments, a midterm, final exam, and Lectures
@@ -22,7 +26,6 @@ and verified live.
   Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
 - Every Notes tab shows its matching public, read-only Google Docs publication in a responsive
   embedded viewer. Google Docs refreshes the published source independently.
-- 2DA4 Syllabus and Tasks remain blank.
 - Presentation: screenshot-inspired two-row header with burgundy active pills; no copied branding.
 
 ## Deployment
@@ -55,3 +58,6 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   3BB4 published Docs frames. GitHub Actions Pages workflow
   [34774933276](https://github.com/DenzelJohnson/courses-summary/actions/runs/34774933276) succeeded
   on 2026-09-13.
+- 2DA4 calculator/tasks feature evidence: 22 Vitest files and 60 tests pass; static production build
+  succeeds. The calculator persists 12 validated marks with 10% assignments, 10% labs, 30% Midterm
+  1, and 50% Final Exam. The Tasks view persists all 10 supplied assessment rows.

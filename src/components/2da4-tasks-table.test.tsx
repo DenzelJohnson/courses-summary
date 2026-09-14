@@ -1,0 +1,31 @@
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { beforeEach, describe, expect, it } from "vitest";
+import { TWO_DA4_TASK_COMPLETION_STORAGE_KEY } from "@/lib/2da4-tasks";
+import { TwoDA4TasksTable } from "./2da4-tasks-table";
+
+describe("TwoDA4TasksTable", () => {
+  beforeEach(() => localStorage.clear());
+
+  it("renders the ten 2DA4 assessments and persists checklist completion", async () => {
+    render(<TwoDA4TasksTable />);
+
+    expect(screen.getAllByRole("row")).toHaveLength(11);
+    expect(screen.getByText("Midterm 1")).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: "Mark Assignment 4 completed" }));
+
+    await waitFor(() =>
+      expect(localStorage.getItem(TWO_DA4_TASK_COMPLETION_STORAGE_KEY)).toContain(
+        '"assignment-4":true',
+      ),
+    );
+  });
+
+  it("marks assessments with the shared styling", () => {
+    render(<TwoDA4TasksTable />);
+
+    expect(screen.getByText("Lab 1").closest("tr")).toHaveClass("task-row--assessment");
+    expect(screen.getByText("Assignment 1").closest("tr")).toHaveClass(
+      "task-row--assessment",
+    );
+  });
+});
