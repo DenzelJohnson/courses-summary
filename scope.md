@@ -44,6 +44,7 @@ Notes view renders its course's public, read-only Google Docs publication.
 | `src/components/notes-viewer.tsx` | Render a responsive read-only Google Docs iframe | Course key and notes catalog | Notes view |
 | `src/lib/course-tasks.ts` | Define the fixed 51-row 2Z03 task schedule and completion-state contract | None | Typed task rows and storage key |
 | `src/lib/task-timeline.ts` | Select the latest task dated today or earlier | Typed task rows and local calendar day | Divider task ID or no divider |
+| `src/lib/task-date.ts` | Format stored task times for human-readable display | Stored task date text | 12-hour Date-column text |
 | `src/hooks/use-persistent-task-completions.ts` | Restore, save, and toggle task completion state | Task IDs and browser storage | Completion map |
 | `src/components/tasks-table.tsx` | Render the 2Z03 chronological task table and toggle completion | Task rows and completion map | Saved completion state and table UI |
 | `src/lib/3bb4-grade-calculator.ts` | Validate versioned 3BB4 marks and calculate current grade with MSAF final-weight transfer | 3BB4 grade state | Pure current grade |
@@ -52,7 +53,7 @@ Notes view renders its course's public, read-only Google Docs publication.
 | `src/lib/2da4-grade-calculator.ts` | Validate versioned 2DA4 marks and calculate the straightforward weighted current grade | 2DA4 grade state | Pure current grade |
 | `src/hooks/use-persistent-2da4-grade-state.ts` | Restore and save 2DA4 grade state in browser storage | 2DA4 grade state and browser storage | Versioned 2DA4 grade state |
 | `src/components/2da4-grade-calculator.tsx` | Render 2DA4 assignment, lab, midterm, and final inputs and current grade | 2DA4 grade state | Saved grade state and calculator UI |
-| `src/lib/3bb4-tasks.ts` | Define fixed 23-row 3BB4 task data and completion storage key | None | Typed 3BB4 task rows and storage key |
+| `src/lib/3bb4-tasks.ts` | Define fixed 3BB4 assessment, lecture, and Tuesday tutorial task data and completion storage key | None | Typed 3BB4 task rows and storage key |
 | `src/components/3bb4-tasks-table.tsx` | Render 3BB4 task table and saved checklist state | 3BB4 task rows and completion map | Checklist table UI |
 | `src/lib/2da4-tasks.ts` | Define fixed Fall 2026 2DA4 assessment and lecture task data and completion storage key | None | Typed 2DA4 task rows and storage key |
 | `src/components/2da4-tasks-table.tsx` | Render 2DA4 task table and saved checklist state | 2DA4 task rows and completion map | Checklist table UI |
@@ -111,6 +112,9 @@ other project automation or scheduled task is known.
 - 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed only by the 3BB4 Tasks table and the
   keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
   and it must not affect the 2Z03 task schedule.
+- Task-date display contract -> produced by `task-date.ts`; consumed by every Tasks table to render
+  stored 24-hour times in 12-hour local-time notation. It does not alter task ordering, calendar
+  anchors, or browser-persisted completion state.
 - 2DA4 grade-state contract -> produced by 2DA4 calculator inputs and `localStorage`; consumed by
   `2da4-grade-calculator.ts`, its persistence hook, and result display. It uses a distinct storage
   key and has no producer or consumer outside the browser.
@@ -121,7 +125,7 @@ other project automation or scheduled task is known.
   consumed by both Tasks tables to add a non-persistent divider class. GitHub Pages and task
   completion storage do not read or write this derived UI state.
 - Shared completion-hook signature -> produced by `use-persistent-task-completions.ts`; consumed
-  by both the 2Z03 and 3BB4 Tasks tables and its tests. Each caller supplies its task IDs and a
+  by the 2Z03, 2DA4, and 3BB4 Tasks tables and its tests. Each caller supplies its task IDs and a
   course-specific storage key, so their saved completion maps remain isolated.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
