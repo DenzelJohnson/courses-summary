@@ -46,6 +46,17 @@ describe("findLatestCurrentTaskId", () => {
     expect(findLatestCurrentTaskId(tasks, new Date(2026, 8, 19))).toBe("sep-19");
   });
 
+  it("selects the chronologically latest row even when tasks are not array-ordered by date", () => {
+    const outOfOrderTasks = [
+      ...tasks,
+      { ...tasks[0], id: "sep-18-appended", calendarDate: 20260918 },
+    ];
+
+    expect(findLatestCurrentTaskId(outOfOrderTasks, new Date(2026, 8, 20))).toBe(
+      "sep-20-assignment",
+    );
+  });
+
   it("returns null when every task is future or undated", () => {
     expect(
       findLatestCurrentTaskId([{ ...tasks[0], calendarDate: null }], new Date(2026, 8, 18)),
