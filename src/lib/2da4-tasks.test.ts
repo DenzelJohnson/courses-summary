@@ -5,7 +5,7 @@ describe("twoDA4Tasks", () => {
   it("adds 37 Monday, Wednesday, Friday lectures around the Fall Break", () => {
     const lectures = twoDA4Tasks.filter((task) => task.type === "Lecture");
 
-    expect(twoDA4Tasks).toHaveLength(47);
+    expect(twoDA4Tasks).toHaveLength(52);
     expect(lectures.map((task) => `${task.name} · ${task.date}`)).toEqual([
       "Lecture 1 · Wed, Sep 9",
       "Lecture 2 · Fri, Sep 11",
@@ -53,21 +53,26 @@ describe("twoDA4Tasks", () => {
     ).toBe(false);
   });
 
-  it("contains the ten supplied assessments in chronological order", () => {
+  it("contains fifteen assessments with separate rows for both parts of every lab", () => {
     const assessments = twoDA4Tasks.filter((task) => task.type !== "Lecture");
 
-    expect(assessments).toHaveLength(10);
+    expect(assessments).toHaveLength(15);
     expect(assessments.map((task) => task.name)).toEqual([
-      "Lab 1",
-      "Lab 2",
+      "Lab 1 - Part 1",
+      "Lab 1 - Part 2",
+      "Lab 2 - Part 1",
       "Assignment 1",
+      "Lab 2 - Part 2",
       "Assignment 2",
-      "Lab 3",
+      "Lab 3 - Part 1",
+      "Lab 3 - Part 2",
       "Midterm 1",
-      "Lab 4",
+      "Lab 4 - Part 1",
       "Assignment 3",
-      "Lab 5",
+      "Lab 4 - Part 2",
+      "Lab 5 - Part 1",
       "Assignment 4",
+      "Lab 5 - Part 2",
     ]);
     expect(twoDA4Tasks.find((task) => task.id === "assignment-1")).toMatchObject({
       type: "Assignment",
@@ -79,8 +84,9 @@ describe("twoDA4Tasks", () => {
     expect(
       assessments
         .filter((task) => task.type === "Lab")
-        .map(({ id, date, sortOrder, calendarDate }) => ({
+        .map(({ id, name, date, sortOrder, calendarDate }) => ({
           id,
+          name,
           date,
           sortOrder,
           calendarDate,
@@ -88,32 +94,72 @@ describe("twoDA4Tasks", () => {
     ).toEqual([
       {
         id: "lab-1",
-        date: "Weeks of Sep 21 and Sep 28 · 14:30–17:20",
+        name: "Lab 1 - Part 1",
+        date: "Mon, Sep 21 · 14:30–17:20",
         sortOrder: 202609211430,
+        calendarDate: 20260921,
+      },
+      {
+        id: "lab-1-part-2",
+        name: "Lab 1 - Part 2",
+        date: "Mon, Sep 28 · 14:30–17:20",
+        sortOrder: 202609281430,
         calendarDate: 20260928,
       },
       {
         id: "lab-2",
-        date: "Weeks of Oct 5 and Oct 19 · 14:30–17:20",
+        name: "Lab 2 - Part 1",
+        date: "Mon, Oct 5 · 14:30–17:20",
         sortOrder: 202610051430,
+        calendarDate: 20261005,
+      },
+      {
+        id: "lab-2-part-2",
+        name: "Lab 2 - Part 2",
+        date: "Mon, Oct 19 · 14:30–17:20",
+        sortOrder: 202610191430,
         calendarDate: 20261019,
       },
       {
         id: "lab-3",
-        date: "Weeks of Oct 26 and Nov 2",
+        name: "Lab 3 - Part 1",
+        date: "Mon, Oct 26",
         sortOrder: 202610260001,
+        calendarDate: 20261026,
+      },
+      {
+        id: "lab-3-part-2",
+        name: "Lab 3 - Part 2",
+        date: "Mon, Nov 2",
+        sortOrder: 202611020001,
         calendarDate: 20261102,
       },
       {
         id: "lab-4",
-        date: "Weeks of Nov 9 and Nov 16 · 14:30–17:20",
+        name: "Lab 4 - Part 1",
+        date: "Mon, Nov 9 · 14:30–17:20",
         sortOrder: 202611091430,
+        calendarDate: 20261109,
+      },
+      {
+        id: "lab-4-part-2",
+        name: "Lab 4 - Part 2",
+        date: "Mon, Nov 16 · 14:30–17:20",
+        sortOrder: 202611161430,
         calendarDate: 20261116,
       },
       {
         id: "lab-5",
-        date: "Weeks of Nov 23 and Nov 30 · 14:30–17:20",
+        name: "Lab 5 - Part 1",
+        date: "Mon, Nov 23 · 14:30–17:20",
         sortOrder: 202611231430,
+        calendarDate: 20261123,
+      },
+      {
+        id: "lab-5-part-2",
+        name: "Lab 5 - Part 2",
+        date: "Mon, Nov 30 · 14:30–17:20",
+        sortOrder: 202611301430,
         calendarDate: 20261130,
       },
     ]);

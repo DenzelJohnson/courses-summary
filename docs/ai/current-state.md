@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-27 (published and live-verified)_
+_Verified: 2026-09-28 (branch verification; publication pending)_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -15,11 +15,11 @@ and verified live.
 - 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
 - 2DA4 Syllabus: saved weighted grade calculator with five assignments at 2% each, five labs at
   2% each, a 30% Midterm 1, and a 50% Final Exam.
-- 2DA4 Tasks: saved 47-row chronological schedule covering 37 Monday/Wednesday/Friday lectures,
-  Labs 1–5, Assignments 1–4, and Midterm 1. It skips the October 12–18 Fall Break and ends on
-  Wednesday, December 9. Each lab remains one saved checklist row and displays both attended weeks:
-  Sep 21/28, Oct 5/19, Oct 26/Nov 2, Nov 9/16, and Nov 23/30. The second week is the lab's timeline
-  completion anchor.
+- 2DA4 Tasks: saved 52-row chronological schedule covering 37 Monday/Wednesday/Friday lectures,
+  ten separate lab-part rows, Assignments 1–4, and Midterm 1. It skips the October 12–18 Fall Break
+  and ends on Wednesday, December 9. Each attended lab week has its own `Lab N - Part 1` or
+  `Lab N - Part 2` checklist row and its own timeline anchor. Historical `lab-N` completion state
+  remains attached to Part 1; each new Part 2 starts incomplete.
 - 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
   and assignment/midterm MSAF controls that transfer weight to a saved final mark.
 - 3BB4 Tasks: saved 35-row checklist with three assignments, a midterm, final exam, Lectures 1–18,
@@ -82,3 +82,6 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   functional issues. GitHub Pages workflow
   [36362430178](https://github.com/DenzelJohnson/courses-summary/actions/runs/36362430178) built and
   deployed successfully on 2026-09-27, and the live Tasks table was checked for all five lab rows.
+- 2DA4 separate-lab-parts branch evidence: focused task-data and table tests pass; the full suite
+  has 23 files and 68 tests passing; the Next.js static production build succeeds. Publication is
+  pending.
