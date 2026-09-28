@@ -15,7 +15,7 @@ use its second attended week as the timeline completion anchor.
 - Lab 5: weeks of November 23 and November 30, 2026.
 
 The screenshot is evidence for dates only. It contains no instruction to change assignments,
-posted dates, lab times, grades, or completion storage.
+posted dates, lab times, grades, or completion storage. Existing lab times remain unchanged.
 
 ## Status
 

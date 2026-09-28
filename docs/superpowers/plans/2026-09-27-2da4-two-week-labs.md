@@ -30,7 +30,7 @@ Expected: FAIL because the current rows show only one week and anchor the first 
 - [ ] **Step 3: Write the minimal implementation**
 
 Replace each lab's Date text and `calendarDate` with the two-week schedule from the approved design.
-Keep IDs, names, task types, and first-week `sortOrder` unchanged.
+Keep IDs, names, task types, first-week `sortOrder`, and any previously supplied session time unchanged.
 
 - [ ] **Step 4: Run the focused test to verify it passes**
 
