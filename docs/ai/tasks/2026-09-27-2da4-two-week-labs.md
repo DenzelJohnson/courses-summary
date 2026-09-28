@@ -19,7 +19,18 @@ posted dates, lab times, grades, or completion storage. Existing lab times remai
 
 ## Status
 
-In progress in isolated worktree `fix-2da4-lab-weeks`.
+Implementation is complete in isolated worktree `fix-2da4-lab-weeks` and is awaiting integration
+and publication.
+
+## Evidence
+
+- The focused task-data test first failed against all five single-week rows, then passed after the
+  correction.
+- The focused 2DA4 Tasks component suite passes: 3 tests.
+- The full Vitest suite passes: 23 files, 67 tests.
+- The Next.js static production build passes.
+- Independent review found no functional schedule issues and confirmed the affected project-memory
+  handoff needed this status update.
 
 ## External State
 
@@ -28,4 +39,5 @@ only, so this lab-display correction does not alter its planned writes.
 
 ## Next Action
 
-Add failing schedule tests, implement the corrected lab values, verify, merge, and publish.
+Merge the reviewed branch to `master`, push it, wait for GitHub Pages deployment, and verify the
+live 2DA4 Tasks view.
