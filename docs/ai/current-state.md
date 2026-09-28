@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-27 (branch verification; publication pending)_
+_Verified: 2026-09-27 (published and live-verified)_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -77,3 +77,8 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   production build succeeds. GitHub Pages workflow
   [34809537593](https://github.com/DenzelJohnson/courses-summary/actions/runs/34809537593) built
   and deployed successfully on 2026-09-14.
+- 2DA4 two-week lab correction evidence: focused data and component tests pass; the full suite has
+  23 files and 67 tests passing; static production build succeeds; independent review found no
+  functional issues. GitHub Pages workflow
+  [36362430178](https://github.com/DenzelJohnson/courses-summary/actions/runs/36362430178) built and
+  deployed successfully on 2026-09-27, and the live Tasks table was checked for all five lab rows.

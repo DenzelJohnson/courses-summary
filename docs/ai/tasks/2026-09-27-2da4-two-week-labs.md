@@ -19,8 +19,7 @@ posted dates, lab times, grades, or completion storage. Existing lab times remai
 
 ## Status
 
-Implementation is complete in isolated worktree `fix-2da4-lab-weeks` and is awaiting integration
-and publication.
+Complete, merged into `master`, and published through GitHub Pages workflow `36362430178`.
 
 ## Evidence
 
@@ -31,6 +30,11 @@ and publication.
 - The Next.js static production build passes.
 - Independent review found no functional schedule issues and confirmed the affected project-memory
   handoff needed this status update.
+- Merge commit `0495cdf` was pushed to `master`.
+- GitHub Pages workflow [36362430178](https://github.com/DenzelJohnson/courses-summary/actions/runs/36362430178)
+  built and deployed successfully on 2026-09-27.
+- Live browser verification confirmed all five two-week lab labels, retained 12-hour times where
+  supplied, and an active checklist button for each row.
 
 ## External State
 
@@ -39,5 +43,4 @@ only, so this lab-display correction does not alter its planned writes.
 
 ## Next Action
 
-Merge the reviewed branch to `master`, push it, wait for GitHub Pages deployment, and verify the
-live 2DA4 Tasks view.
+None for this task.
