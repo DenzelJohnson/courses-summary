@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-28 (branch verification; publication pending)_
+_Verified: 2026-09-28 (published and live-verified)_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -82,6 +82,9 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   functional issues. GitHub Pages workflow
   [36362430178](https://github.com/DenzelJohnson/courses-summary/actions/runs/36362430178) built and
   deployed successfully on 2026-09-27, and the live Tasks table was checked for all five lab rows.
-- 2DA4 separate-lab-parts branch evidence: focused task-data and table tests pass; the full suite
-  has 23 files and 68 tests passing; the Next.js static production build succeeds. Publication is
-  pending.
+- 2DA4 separate-lab-parts evidence: focused task-data and table tests pass; the full suite has 23
+  files and 68 tests passing; the Next.js static production build succeeds; independent review
+  found no issues. GitHub Pages workflow
+  [36443660794](https://github.com/DenzelJohnson/courses-summary/actions/runs/36443660794) built and
+  deployed successfully on 2026-09-28, and the live 2DA4 Tasks view confirms all ten separately
+  checkable lab-part rows and their scheduled dates.
