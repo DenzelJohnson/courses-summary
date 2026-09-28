@@ -3,7 +3,7 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-09-13 by Codex_
+_Last updated: 2026-09-27 by Codex_
 
 ## 1. Overview
 
@@ -55,7 +55,7 @@ Notes view renders its course's public, read-only Google Docs publication.
 | `src/components/2da4-grade-calculator.tsx` | Render 2DA4 assignment, lab, midterm, and final inputs and current grade | 2DA4 grade state | Saved grade state and calculator UI |
 | `src/lib/3bb4-tasks.ts` | Define fixed 3BB4 assessment, lecture, and Tuesday tutorial task data and completion storage key | None | Typed 3BB4 task rows and storage key |
 | `src/components/3bb4-tasks-table.tsx` | Render 3BB4 task table and saved checklist state | 3BB4 task rows and completion map | Checklist table UI |
-| `src/lib/2da4-tasks.ts` | Define fixed Fall 2026 2DA4 assessment and lecture task data and completion storage key | None | Typed 2DA4 task rows and storage key |
+| `src/lib/2da4-tasks.ts` | Define fixed Fall 2026 2DA4 assessment and lecture task data, including both attended weeks for each two-week lab, and completion storage key | None | Typed 2DA4 task rows and storage key |
 | `src/components/2da4-tasks-table.tsx` | Render 2DA4 task table and saved checklist state | 2DA4 task rows and completion map | Checklist table UI |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
@@ -120,7 +120,9 @@ other project automation or scheduled task is known.
   key and has no producer or consumer outside the browser.
 - 2DA4 task contract -> produced by `2da4-tasks.ts`; consumed only by the 2DA4 Tasks table and the
   keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
-  and it must not affect the 2Z03 or 3BB4 task schedules.
+  and it must not affect the 2Z03 or 3BB4 task schedules. Lab rows keep one stable checklist ID,
+  sort from their first attended week, display both attended weeks, and use the second week as the
+  timeline completion anchor.
 - Task-timeline contract -> produced by both course task modules and the browser's local date;
   consumed by both Tasks tables to add a non-persistent divider class. GitHub Pages and task
   completion storage do not read or write this derived UI state.

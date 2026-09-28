@@ -76,12 +76,47 @@ describe("twoDA4Tasks", () => {
     expect(twoDA4Tasks.find((task) => task.id === "assignment-3")).toMatchObject({
       date: "Mon, Nov 16 · extra week due to Midterm",
     });
-    expect(twoDA4Tasks.find((task) => task.id === "lab-3")?.date).toBe("Weeks of Oct 26");
-    expect(twoDA4Tasks.find((task) => task.id === "lab-4")?.date).toBe(
-      "Weeks of Nov 9 · 14:30–17:20",
-    );
-    expect(twoDA4Tasks.find((task) => task.id === "lab-3")?.calendarDate).toBe(20261026);
-    expect(twoDA4Tasks.find((task) => task.id === "lab-4")?.calendarDate).toBe(20261109);
+    expect(
+      assessments
+        .filter((task) => task.type === "Lab")
+        .map(({ id, date, sortOrder, calendarDate }) => ({
+          id,
+          date,
+          sortOrder,
+          calendarDate,
+        })),
+    ).toEqual([
+      {
+        id: "lab-1",
+        date: "Weeks of Sep 21 and Sep 28 · 14:30–17:20",
+        sortOrder: 202609211430,
+        calendarDate: 20260928,
+      },
+      {
+        id: "lab-2",
+        date: "Weeks of Oct 5 and Oct 19 · 14:30–17:20",
+        sortOrder: 202610051430,
+        calendarDate: 20261019,
+      },
+      {
+        id: "lab-3",
+        date: "Weeks of Oct 26 and Nov 2",
+        sortOrder: 202610260001,
+        calendarDate: 20261102,
+      },
+      {
+        id: "lab-4",
+        date: "Weeks of Nov 9 and Nov 16 · 14:30–17:20",
+        sortOrder: 202611091430,
+        calendarDate: 20261116,
+      },
+      {
+        id: "lab-5",
+        date: "Weeks of Nov 23 and Nov 30 · 14:30–17:20",
+        sortOrder: 202611231430,
+        calendarDate: 20261130,
+      },
+    ]);
     expect(TWO_DA4_TASK_COMPLETION_STORAGE_KEY).toBe("courses-summary:2da4:tasks:v1");
   });
 });

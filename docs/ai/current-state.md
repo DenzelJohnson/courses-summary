@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-14 (branch verification; publication pending)_
+_Verified: 2026-09-27 (branch verification; publication pending)_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -17,7 +17,9 @@ and verified live.
   2% each, a 30% Midterm 1, and a 50% Final Exam.
 - 2DA4 Tasks: saved 47-row chronological schedule covering 37 Monday/Wednesday/Friday lectures,
   Labs 1–5, Assignments 1–4, and Midterm 1. It skips the October 12–18 Fall Break and ends on
-  Wednesday, December 9.
+  Wednesday, December 9. Each lab remains one saved checklist row and displays both attended weeks:
+  Sep 21/28, Oct 5/19, Oct 26/Nov 2, Nov 9/16, and Nov 23/30. The second week is the lab's timeline
+  completion anchor.
 - 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
   and assignment/midterm MSAF controls that transfer weight to a saved final mark.
 - 3BB4 Tasks: saved 35-row checklist with three assignments, a midterm, final exam, Lectures 1–18,

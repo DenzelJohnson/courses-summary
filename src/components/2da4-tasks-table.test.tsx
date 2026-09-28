@@ -36,7 +36,11 @@ describe("TwoDA4TasksTable", () => {
   it("uses 12-hour times in the date column", () => {
     render(<TwoDA4TasksTable />);
 
-    expect(screen.getByText("Mon, Sep 21 · 2:30 PM–5:20 PM")).toBeInTheDocument();
-    expect(screen.queryByText("Mon, Sep 21 · 14:30–17:20")).not.toBeInTheDocument();
+    expect(
+      screen.getByText("Weeks of Sep 21 and Sep 28 · 2:30 PM–5:20 PM"),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByText("Weeks of Sep 21 and Sep 28 · 14:30–17:20"),
+    ).not.toBeInTheDocument();
   });
 });
