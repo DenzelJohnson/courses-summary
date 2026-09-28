@@ -6,10 +6,10 @@ import { TwoDA4TasksTable } from "./2da4-tasks-table";
 describe("TwoDA4TasksTable", () => {
   beforeEach(() => localStorage.clear());
 
-  it("renders 37 lectures and ten 2DA4 assessments, and persists checklist completion", async () => {
+  it("renders 37 lectures and fifteen 2DA4 assessments, and persists checklist completion", async () => {
     render(<TwoDA4TasksTable />);
 
-    expect(screen.getAllByRole("row")).toHaveLength(48);
+    expect(screen.getAllByRole("row")).toHaveLength(53);
     expect(screen.getByText("Lecture 37")).toBeInTheDocument();
     expect(screen.getByText("Midterm 1")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Mark Assignment 4 completed" }));
@@ -24,7 +24,9 @@ describe("TwoDA4TasksTable", () => {
   it("marks assessments with the shared styling", () => {
     render(<TwoDA4TasksTable />);
 
-    expect(screen.getByText("Lab 1").closest("tr")).toHaveClass("task-row--assessment");
+    expect(screen.getByText("Lab 1 - Part 1").closest("tr")).toHaveClass(
+      "task-row--assessment",
+    );
     expect(screen.getByText("Assignment 1").closest("tr")).toHaveClass(
       "task-row--assessment",
     );
@@ -37,10 +39,28 @@ describe("TwoDA4TasksTable", () => {
     render(<TwoDA4TasksTable />);
 
     expect(
-      screen.getByText("Weeks of Sep 21 and Sep 28 · 2:30 PM–5:20 PM"),
+      screen.getByText("Mon, Sep 21 · 2:30 PM–5:20 PM"),
     ).toBeInTheDocument();
     expect(
-      screen.queryByText("Weeks of Sep 21 and Sep 28 · 14:30–17:20"),
+      screen.queryByText("Mon, Sep 21 · 14:30–17:20"),
     ).not.toBeInTheDocument();
+  });
+
+  it("keeps saved completion on Part 1 and starts Part 2 incomplete", async () => {
+    localStorage.setItem(
+      TWO_DA4_TASK_COMPLETION_STORAGE_KEY,
+      JSON.stringify({ "lab-1": true }),
+    );
+
+    render(<TwoDA4TasksTable />);
+
+    await waitFor(() =>
+      expect(
+        screen.getByRole("button", { name: "Mark Lab 1 - Part 1 incomplete" }),
+      ).toHaveTextContent("Completed"),
+    );
+    expect(
+      screen.getByRole("button", { name: "Mark Lab 1 - Part 2 completed" }),
+    ).toHaveTextContent("Incomplete");
   });
 });
