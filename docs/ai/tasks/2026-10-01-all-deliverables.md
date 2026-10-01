@@ -8,8 +8,7 @@ and unweighted 3BB4 tutorials. Keep checklist status tied to each course's exist
 
 ## Status
 
-Implementation is complete on isolated branch `codex/all-deliverables`. Independent review found
-no blocking issues; integration and publication are pending.
+Complete. Merged into `master` at `057c0bc` and published to GitHub Pages.
 
 ## Evidence
 
@@ -23,12 +22,19 @@ no blocking issues; integration and publication are pending.
   was addressed by checking two same-day orderings.
 - Completion tests verify 2Z03, 2DA4, and 3BB4 continue using their existing storage keys and
   preserve saved lecture/tutorial states while the combined view is mounted.
+- Merged `master` verification: 25 Vitest files, 77 tests passing; Next.js static production build
+  succeeds and `git diff --check` is clean.
+- GitHub Pages [workflow 36881457755](https://github.com/DenzelJohnson/courses-summary/actions/runs/36881457755)
+  built and deployed `057c0bc` successfully on 2026-10-01. The live browser shows the fourth tab,
+  34 graded rows plus the table header, both parts of each 2DA4 lab, no tutorials or lectures,
+  dates followed by `TBD`, and existing checklist states. At a 1280 px viewport, the page has no
+  horizontal overflow and the header tabs fit within the viewport.
 
 ## External State
 
-No external writes for this task yet. The existing GitHub Pages site is the authorized delivery
-target; the separate Notion Calendar task remains pending.
+Pushed merge commit `057c0bc` to the public `DenzelJohnson/courses-summary` repository, triggering
+the successful Pages deployment above. The separate Notion Calendar task remains pending.
 
 ## Next Action
 
-Merge into `master`, publish, and check the live combined table.
+None for this task.
