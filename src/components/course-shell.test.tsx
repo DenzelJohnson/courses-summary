@@ -46,4 +46,17 @@ describe("CourseShell", () => {
     );
     expect(screen.getByRole("region", { name: "Grade calculator" })).toBeInTheDocument();
   });
+
+  it("opens the combined graded table from its bookmarkable URL", () => {
+    useSearchParams.mockReturnValue(new URLSearchParams("course=all-deliverables"));
+
+    render(<CourseShell />);
+
+    expect(screen.getByRole("link", { name: "All Deliverables" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(screen.queryByRole("navigation", { name: "Course sections" })).not.toBeInTheDocument();
+    expect(screen.getByRole("region", { name: "All Deliverables" })).toBeInTheDocument();
+  });
 });

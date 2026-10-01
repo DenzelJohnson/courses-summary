@@ -20,4 +20,22 @@ describe("CourseHeader", () => {
       "/?course=2DA4&section=lectures",
     );
   });
+
+  it("shows All Deliverables without course sections and links back to each course Tasks view", () => {
+    render(<CourseHeader course="all-deliverables" section="lectures" />);
+
+    expect(screen.getByRole("link", { name: "All Deliverables" })).toHaveAttribute(
+      "aria-current",
+      "page",
+    );
+    expect(screen.getByRole("link", { name: "All Deliverables" })).toHaveAttribute(
+      "href",
+      "/?course=all-deliverables",
+    );
+    expect(screen.queryByRole("navigation", { name: "Course sections" })).not.toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "2DA4" })).toHaveAttribute(
+      "href",
+      "/?course=2DA4&section=lectures",
+    );
+  });
 });

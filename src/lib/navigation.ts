@@ -2,6 +2,7 @@ export const courses = ["2Z03", "2DA4", "3BB4"] as const;
 export const sections = ["syllabus", "lectures", "notes"] as const;
 
 export type Course = (typeof courses)[number];
+export type PrimaryTab = Course | "all-deliverables";
 export type Section = (typeof sections)[number];
 
 export const sectionLabels: Record<Section, string> = {
@@ -16,11 +17,15 @@ const first = (value: string | string[] | undefined) =>
   Array.isArray(value) ? value[0] : value;
 
 export function resolveSelection(values: SearchValues): {
-  course: Course;
+  course: PrimaryTab;
   section: Section;
 } {
   const courseValue = first(values.course);
   const sectionValue = first(values.section);
+
+  if (courseValue === "all-deliverables") {
+    return { course: "all-deliverables", section: "lectures" };
+  }
 
   return {
     course: courses.includes(courseValue as Course) ? (courseValue as Course) : "2Z03",

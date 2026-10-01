@@ -1,4 +1,5 @@
-import type { Course, Section } from "@/lib/navigation";
+import type { PrimaryTab, Section } from "@/lib/navigation";
+import { AllDeliverablesTable } from "./all-deliverables-table";
 import { EmptySection } from "./empty-section";
 import { GradeCalculator } from "./grade-calculator";
 import { TwoDA4GradeCalculator } from "./2da4-grade-calculator";
@@ -9,11 +10,12 @@ import { NotesViewer } from "./notes-viewer";
 import { TasksTable } from "./tasks-table";
 
 type CourseContentProps = {
-  course: Course;
+  course: PrimaryTab;
   section: Section;
 };
 
 export function CourseContent({ course, section }: CourseContentProps) {
+  if (course === "all-deliverables") return <AllDeliverablesTable />;
   if (section === "notes") return <NotesViewer course={course} />;
   if (course === "2Z03" && section === "lectures") return <TasksTable />;
   if (course === "2DA4" && section === "lectures") return <TwoDA4TasksTable />;
