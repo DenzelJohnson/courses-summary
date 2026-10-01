@@ -34,4 +34,16 @@ describe("allDeliverables", () => {
     expect(allDeliverables.slice(-5).every(({ task }) => task.calendarDate == null)).toBe(true);
     expect(new Set(allDeliverables.map(({ key }) => key)).size).toBe(34);
   });
+
+  it("orders two deliverables on the same day by their start or due time", () => {
+    const octoberFifth = allDeliverables
+      .filter(({ task }) => task.calendarDate === 20261005)
+      .map(({ course, task }) => `${course}:${task.name}`);
+    const novemberTwentySixth = allDeliverables
+      .filter(({ task }) => task.calendarDate === 20261126)
+      .map(({ course, task }) => `${course}:${task.name}`);
+
+    expect(octoberFifth).toEqual(["2DA4:Lab 2 - Part 1", "2DA4:Assignment 1"]);
+    expect(novemberTwentySixth).toEqual(["2Z03:Midterm 2", "2Z03:Assignment 5"]);
+  });
 });
