@@ -13,6 +13,13 @@ describe("resolveSelection", () => {
     });
   });
 
+  it("resolves All Deliverables as a separate primary tab", () => {
+    expect(resolveSelection({ course: "all-deliverables", section: "notes" })).toEqual({
+      course: "all-deliverables",
+      section: "lectures",
+    });
+  });
+
   it("falls back for invalid values", () => {
     expect(resolveSelection({ course: "NOPE", section: "other" })).toEqual({
       course: "2Z03",

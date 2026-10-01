@@ -1,6 +1,6 @@
 # Current State
 
-_Verified: 2026-09-28 (published and live-verified)_
+_Verified: 2026-10-01 (All Deliverables branch verification; publication pending)_
 
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
@@ -8,8 +8,8 @@ and verified live.
 ## Required Outcome
 
 - Identity label: **Courses**, with no subtitle.
-- Primary tabs: 2Z03, 2DA4, 3BB4.
-- Secondary tabs for every course: Syllabus, Lectures, Notes.
+- Primary tabs: 2Z03, 2DA4, 3BB4, and All Deliverables.
+- Secondary tabs for every course: Syllabus, Tasks, Notes.
 - Default selection: 2Z03 and Syllabus.
 - 2Z03 Syllabus: saved grade calculator with Scheme I/II comparison.
 - 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
@@ -25,6 +25,10 @@ and verified live.
 - 3BB4 Tasks: saved 35-row checklist with three assignments, a midterm, final exam, Lectures 1–18,
   and Tutorials 1–12 on Tuesdays from September 15 through December 8, excluding Fall Break.
   Unknown dates are `TBD`.
+- All Deliverables: one chronological table of the 34 existing graded tasks across all three
+  courses, with Course, Type, Name, Date, and Checklist columns. It includes both parts of the
+  2DA4 graded labs, excludes lectures and unweighted 3BB4 tutorials, and shares each course's
+  existing saved checklist state. Undated tasks follow dated tasks.
 - 2Z03, 2DA4, and 3BB4 Tasks: a bright purple divider follows the final table-ordered dated task on or
   before the browser's local calendar day; `TBD` tasks do not participate. Assignment, Lab,
   Midterm, and Exam rows have pale-purple emphasis; Lecture rows remain unhighlighted.
@@ -88,3 +92,6 @@ Live site: [denzeljohnson.github.io/courses-summary](https://denzeljohnson.githu
   [36443660794](https://github.com/DenzelJohnson/courses-summary/actions/runs/36443660794) built and
   deployed successfully on 2026-09-28, and the live 2DA4 Tasks view confirms all ten separately
   checkable lab-part rows and their scheduled dates.
+- All Deliverables branch evidence: navigation, aggregation, and component tests pass; the full
+  suite has 25 files and 77 tests passing, including same-day ordering. Next.js static production
+  build succeeds. Independent review found no blocking issues; merge and publication remain pending.

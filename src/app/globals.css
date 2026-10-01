@@ -337,6 +337,10 @@ a {
   border-collapse: collapse;
 }
 
+.tasks-table--all-deliverables table {
+  min-width: 52rem;
+}
+
 .tasks-table th,
 .tasks-table td {
   padding: 0.9rem 1rem;
@@ -376,6 +380,18 @@ a {
 
 .tasks-table td:first-child,
 .tasks-table td:nth-child(3) {
+  color: var(--muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tasks-table--all-deliverables td:nth-child(3) {
+  color: var(--text);
+  font-weight: 400;
+  white-space: normal;
+}
+
+.tasks-table--all-deliverables td:nth-child(4) {
   color: var(--muted);
   font-weight: 700;
   white-space: nowrap;

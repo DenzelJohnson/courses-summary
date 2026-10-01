@@ -3,14 +3,16 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-09-28 by Codex_
+_Last updated: 2026-10-01 by Codex_
 
 ## 1. Overview
 
 This repository contains a Next.js course-summary interface and its tool-neutral project memory.
-The main page exposes course navigation for 2Z03, 2DA4, and 3BB4; each course contains Syllabus,
-Tasks, and Notes. The 2Z03 Syllabus contains a persisted grade calculator and its Tasks view
-contains a fixed course schedule with saved completion states. The 2DA4 Syllabus contains a
+The main page exposes course navigation for 2Z03, 2DA4, and 3BB4, plus an All Deliverables tab;
+each course contains Syllabus, Tasks, and Notes. All Deliverables combines graded task rows from
+the three courses and reuses their saved checklist states. The 2Z03 Syllabus contains a persisted
+grade calculator and its Tasks view contains a fixed course schedule with saved completion states.
+The 2DA4 Syllabus contains a
 persisted weighted grade calculator and its Tasks view contains a fixed Fall 2026 assessment and
 lecture schedule with saved completion states. The 3BB4 Syllabus has its own persisted calculator and Tasks view. Each
 Notes view renders its course's public, read-only Google Docs publication.
@@ -57,6 +59,8 @@ Notes view renders its course's public, read-only Google Docs publication.
 | `src/components/3bb4-tasks-table.tsx` | Render 3BB4 task table and saved checklist state | 3BB4 task rows and completion map | Checklist table UI |
 | `src/lib/2da4-tasks.ts` | Define fixed Fall 2026 2DA4 assessment and lecture task data, including independently checkable Part 1 and Part 2 rows for each two-week lab, and completion storage key | None | Typed 2DA4 task rows and storage key |
 | `src/components/2da4-tasks-table.tsx` | Render 2DA4 task table and saved checklist state | 2DA4 task rows and completion map | Checklist table UI |
+| `src/lib/all-deliverables.ts` | Select and date-sort graded task rows from the three course catalogs | Course task data and grade category policy | Combined task rows with course identity |
+| `src/components/all-deliverables-table.tsx` | Render the combined checklist and use each course's existing completion key | Combined rows and three completion maps | Combined table UI and saved course completion state |
 | `.github/workflows/deploy-pages.yml` | Test, export, and deploy static site | Git commit and package scripts | GitHub Pages artifact/deployment |
 
 ## 4. Databases
@@ -88,7 +92,9 @@ other project automation or scheduled task is known.
 ## 8. Dependency Map
 
 - Course/section navigation contract -> produced by `src/lib/navigation.ts`; consumed by
-  `src/app/page.tsx`, `src/components/course-header.tsx`, both tab rows, and automated tests.
+  `src/app/page.tsx`, `src/components/course-shell.tsx`, `src/components/course-header.tsx`,
+  `src/components/course-content.tsx`, both tab rows, and automated tests. The all-deliverables
+  selection hides the course section row and has a bookmarkable URL.
 - Search parameter selection -> produced by the browser URL; consumed by `resolveSelection`; the
   resolved values produce active states and all navigation URLs.
 - Course-notes catalog -> produced by `src/lib/course-notes.ts`; consumed by `NotesViewer` and
@@ -101,34 +107,42 @@ other project automation or scheduled task is known.
 - Grade-state contract -> produced by calculator inputs and `localStorage`; consumed by the pure
   grade engine and result display. No server receives the marks.
 - Task-schedule contract -> produced by `src/lib/course-tasks.ts`; consumed by the 2Z03 Tasks
-  table, the task-timeline helper, and their tests. Its optional calendar-day field establishes
-  Fall 2026 task timing and has no external producer.
+  table, All Deliverables, the task-timeline helper, and their tests. Its optional calendar-day
+  field establishes Fall 2026 task timing and has no external producer.
 - Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
-  by `use-persistent-task-completions` and the same Tasks table after reload. No server,
-  automation, or grade-calculator module receives it.
+  by `use-persistent-task-completions`, each course Tasks table, and All Deliverables after
+  navigation or reload. The combined view uses the same course keys and full task-ID lists so
+  completion stays compatible, including lecture states. No server, automation, or grade-calculator
+  module receives it.
 - 3BB4 grade-state contract -> produced by 3BB4 calculator inputs and MSAF toggles; consumed by
   `3bb4-grade-calculator.ts`, its persistence hook, and result display. It uses a distinct storage
   key and has no producer or consumer outside the browser.
-- 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed only by the 3BB4 Tasks table and the
-  keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
-  and it must not affect the 2Z03 task schedule.
+- 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed by the 3BB4 Tasks table,
+  All Deliverables, and the keyed shared completion hook. Its optional calendar-day field is
+  consumed by the timeline helper. Its unweighted tutorials and lectures are excluded from All
+  Deliverables.
 - Task-date display contract -> produced by `task-date.ts`; consumed by every Tasks table to render
   stored 24-hour times in 12-hour local-time notation. It does not alter task ordering, calendar
   anchors, or browser-persisted completion state.
 - 2DA4 grade-state contract -> produced by 2DA4 calculator inputs and `localStorage`; consumed by
   `2da4-grade-calculator.ts`, its persistence hook, and result display. It uses a distinct storage
   key and has no producer or consumer outside the browser.
-- 2DA4 task contract -> produced by `2da4-tasks.ts`; consumed only by the 2DA4 Tasks table and the
-  keyed shared completion hook. Its optional calendar-day field is consumed by the timeline helper
-  and it must not affect the 2Z03 or 3BB4 task schedules. Each graded lab produces separate Part 1
+- 2DA4 task contract -> produced by `2da4-tasks.ts`; consumed by the 2DA4 Tasks table,
+  All Deliverables, and the keyed shared completion hook. Its optional calendar-day field is
+  consumed by the timeline helper and it must not affect the 2Z03 or 3BB4 task schedules. Each
+  graded lab produces separate Part 1
   and Part 2 checklist rows with their own date and timeline anchor. Part 1 retains the historical
   `lab-N` ID so existing completion state remains valid; Part 2 uses a new `lab-N-part-2` ID.
-- Task-timeline contract -> produced by both course task modules and the browser's local date;
-  consumed by both Tasks tables to add a non-persistent divider class. GitHub Pages and task
-  completion storage do not read or write this derived UI state.
+- Task-timeline contract -> produced by the course task modules and the browser's local date;
+  consumed by the course Tasks tables and All Deliverables to add a non-persistent divider class.
+  GitHub Pages and task completion storage do not read or write this derived UI state.
+- All Deliverables contract -> produced by the three existing course task catalogs; consumed by
+  `all-deliverables.ts`, its table, and tests. Assessment types are included only where the course
+  grading schemes assign weight. Known dates sort chronologically using Fall 2026 calendar dates;
+  undated rows follow. Composite course/task IDs are used only for combined-view row identity.
 - Shared completion-hook signature -> produced by `use-persistent-task-completions.ts`; consumed
-  by the 2Z03, 2DA4, and 3BB4 Tasks tables and its tests. Each caller supplies its task IDs and a
-  course-specific storage key, so their saved completion maps remain isolated.
+  by the 2Z03, 2DA4, and 3BB4 Tasks tables, All Deliverables, and its tests. Each caller supplies
+  its task IDs and a course-specific storage key, so their saved completion maps remain isolated.
 - Static base path -> produced by the GitHub Actions environment and Next.js configuration;
   consumed by exported assets and internal navigation links.
 - `out/` export -> produced by `npm run build`; consumed by the GitHub Pages upload/deploy actions.

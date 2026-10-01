@@ -3,38 +3,44 @@ import {
   courses,
   sectionLabels,
   sections,
-  type Course,
+  type PrimaryTab,
   type Section,
 } from "@/lib/navigation";
 import { TabNavigation } from "./tab-navigation";
 
-type CourseHeaderProps = { course: Course; section: Section };
+type CourseHeaderProps = { course: PrimaryTab; section: Section };
 
 export function CourseHeader({ course, section }: CourseHeaderProps) {
+  const courseSection = course === "all-deliverables" ? "lectures" : section;
   const courseItems = courses.map((value) => ({
     value,
     label: value,
-    href: buildHref(value, section),
+    href: buildHref(value, courseSection),
   }));
-  const sectionItems = sections.map((value) => ({
-    value,
-    label: sectionLabels[value],
-    href: buildHref(course, value),
-  }));
+  const primaryItems = [
+    ...courseItems,
+    { value: "all-deliverables", label: "All Deliverables", href: "/?course=all-deliverables" },
+  ];
 
   return (
     <header className="course-header">
       <div className="course-header__primary">
         <h1>Courses</h1>
-        <TabNavigation label="Courses" items={courseItems} activeValue={course} />
+        <TabNavigation label="Courses" items={primaryItems} activeValue={course} />
       </div>
-      <div className="course-header__secondary">
-        <TabNavigation
-          label="Course sections"
-          items={sectionItems}
-          activeValue={section}
-        />
-      </div>
+      {course !== "all-deliverables" && (
+        <div className="course-header__secondary">
+          <TabNavigation
+            label="Course sections"
+            items={sections.map((value) => ({
+              value,
+              label: sectionLabels[value],
+              href: buildHref(course, value),
+            }))}
+            activeValue={section}
+          />
+        </div>
+      )}
     </header>
   );
 }
