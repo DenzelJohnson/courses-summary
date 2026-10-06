@@ -1,6 +1,6 @@
 # Task: Set 3BB4 Assignment 1 due date
 
-- Status: ACTIVE (publication)
+- Status: COMPLETE
 - Opened: 2026-10-05
 - Updated: 2026-10-05
 - Worktree: repository root
@@ -39,12 +39,15 @@ session's missing current-turn receipt was reported. No audit-health claim is ma
 - Focused data and table checks: four files, ten tests passing.
 - `npm test`: 25 files, 77 tests passing.
 - `NEXT_PUBLIC_BASE_PATH=/courses-summary npm run build`: passing static export.
-- Publication authorized by the user. Preparing the verified change for GitHub Pages;
-  deployment result pending.
+- Publication authorized by the user. Commit `52975c6` was pushed to `origin/master`.
+- GitHub Pages workflow [37406465977](https://github.com/DenzelJohnson/courses-summary/actions/runs/37406465977)
+  passed its build and deployment jobs on 2026-10-05.
+- Live browser verification: 3BB4 Tasks shows Assignment 1 as `Tue, Oct 6`;
+  All Deliverables shows the same row between October 5 and October 8 work.
 
 ## Risks and Handoff
 
-No known local issues. Next action: commit and push the reviewed change, then verify
-the resulting GitHub Pages deployment and both live task views.
+No known issues or remaining assignment-date work. The unrelated Notion Calendar task
+remains pending. Next action: commit and push this deployment-evidence checkpoint.
 
 Information only in chat: none
