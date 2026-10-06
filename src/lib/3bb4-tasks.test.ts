@@ -8,14 +8,17 @@ describe("threeBB4Tasks", () => {
   it("contains three assignments, a midterm, final, eighteen lectures, and twelve tutorials", () => {
     expect(threeBB4Tasks).toHaveLength(35);
     expect(threeBB4Tasks.filter((task) => task.type === "Lecture")).toHaveLength(30);
-    expect(threeBB4Tasks.filter((task) => task.date === "TBD")).toHaveLength(22);
+    expect(threeBB4Tasks.filter((task) => task.date === "TBD")).toHaveLength(21);
     expect(threeBB4Tasks.find((task) => task.id === "midterm")).toMatchObject({
       type: "Midterm",
       name: "Midterm",
       date: "Week of Oct 19–23 · 20:00",
     });
     expect(threeBB4Tasks.find((task) => task.id === "midterm")?.calendarDate).toBe(20261023);
-    expect(threeBB4Tasks.find((task) => task.id === "assignment-1")?.calendarDate).toBeNull();
+    expect(threeBB4Tasks.find((task) => task.id === "assignment-1")).toMatchObject({
+      date: "Tue, Oct 6",
+      calendarDate: 20261006,
+    });
     expect(threeBB4Tasks.filter((task) => task.name.startsWith("Tutorial "))).toEqual([
       expect.objectContaining({ name: "Tutorial 1", date: "Tue, Sep 15", calendarDate: 20260915 }),
       expect.objectContaining({ name: "Tutorial 2", date: "Tue, Sep 22", calendarDate: 20260922 }),

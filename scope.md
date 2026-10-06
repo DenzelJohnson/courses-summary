@@ -3,7 +3,7 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-10-01 by Codex_
+_Last updated: 2026-10-05 by Codex_
 
 ## 1. Overview
 
@@ -120,7 +120,8 @@ other project automation or scheduled task is known.
 - 3BB4 task contract -> produced by `3bb4-tasks.ts`; consumed by the 3BB4 Tasks table,
   All Deliverables, and the keyed shared completion hook. Its optional calendar-day field is
   consumed by the timeline helper. Its unweighted tutorials and lectures are excluded from All
-  Deliverables.
+  Deliverables. Assignment 1 is due October 6, 2026, with no specified time; its shared
+  display date and calendar-day anchor also place it in All Deliverables on that date.
 - Task-date display contract -> produced by `task-date.ts`; consumed by every Tasks table to render
   stored 24-hour times in 12-hour local-time notation. It does not alter task ordering, calendar
   anchors, or browser-persisted completion state.

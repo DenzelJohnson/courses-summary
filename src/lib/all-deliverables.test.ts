@@ -31,7 +31,7 @@ describe("allDeliverables", () => {
     expect(dated.map(({ task }) => task.calendarDate)).toEqual(
       [...dated.map(({ task }) => task.calendarDate)].sort((left, right) => left! - right!),
     );
-    expect(allDeliverables.slice(-5).every(({ task }) => task.calendarDate == null)).toBe(true);
+    expect(allDeliverables.slice(-4).every(({ task }) => task.calendarDate == null)).toBe(true);
     expect(new Set(allDeliverables.map(({ key }) => key)).size).toBe(34);
   });
 

@@ -2,6 +2,11 @@
 
 _Verified: 2026-10-01 (All Deliverables published and checked live)_
 
+Local update verified 2026-10-05: 3BB4 Assignment 1 is due October 6, 2026, with
+calendar anchor `20261006`. Both 3BB4 Tasks and All Deliverables consume this date.
+The 77-test suite and GitHub Pages static build pass. This change is not yet published;
+see [task evidence](tasks/2026-10-05-3bb4-assignment-1-due-date.md).
+
 The Courses summary, 2Z03 calculator, and 2Z03 Tasks table are merged into `master`, published,
 and verified live.
 
