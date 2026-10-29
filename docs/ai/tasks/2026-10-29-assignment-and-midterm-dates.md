@@ -1,6 +1,6 @@
 # Task: Update 3BB4 Assignment 2 and 2Z03 Midterm 1 dates
 
-- Status: ACTIVE (publication)
+- Status: COMPLETE
 - Opened: 2026-10-29
 - Updated: 2026-10-29
 - Worktree: repository root
@@ -39,9 +39,14 @@ and timeline anchors. Existing task IDs and completion storage remain compatible
 
 ## External State and Handoff
 
-Publication is authorized by the user. No known implementation issues. Next action:
-commit and push only this task's changes, preserving unrelated coursework edits, then
-verify the resulting Pages deployment and the corrected dates in both course views
-and All Deliverables.
+Publication was authorized by the user. Commit `871359e` was pushed to `origin/master`.
+GitHub Pages workflow [40915910514](https://github.com/DenzelJohnson/courses-summary/actions/runs/40915910514)
+passed its build and deployment jobs on 2026-10-29.
+
+Live browser verification confirmed both course task tables and All Deliverables show
+2Z03 Midterm 1 as `Mon, Nov 2 · 5:30 PM` and 3BB4 Assignment 2 as
+`Mon, Nov 2 · 11:59 PM`. No known implementation issues or remaining schedule work.
+Unrelated INDEX, scope, and local coursework task edits remain uncommitted.
+Next action: commit and push this documentation checkpoint.
 
 Information only in chat: none
