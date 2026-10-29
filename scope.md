@@ -3,7 +3,7 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-10-05 by Codex_
+_Last updated: 2026-10-29 by Codex_
 
 ## 1. Overview
 
@@ -108,7 +108,8 @@ other project automation or scheduled task is known.
   grade engine and result display. No server receives the marks.
 - Task-schedule contract -> produced by `src/lib/course-tasks.ts`; consumed by the 2Z03 Tasks
   table, All Deliverables, the task-timeline helper, and their tests. Its optional calendar-day
-  field establishes Fall 2026 task timing and has no external producer.
+  field establishes Fall 2026 task timing and has no external producer. Midterm 1 is scheduled
+  for November 2, 2026 at 5:30 PM; its sort order also determines its calendar-day anchor.
 - Task-completion contract -> produced by a Tasks-table toggle and browser `localStorage`; consumed
   by `use-persistent-task-completions`, each course Tasks table, and All Deliverables after
   navigation or reload. The combined view uses the same course keys and full task-ID lists so
@@ -122,6 +123,8 @@ other project automation or scheduled task is known.
   consumed by the timeline helper. Its unweighted tutorials and lectures are excluded from All
   Deliverables. Assignment 1 is due October 6, 2026, with no specified time; its shared
   display date and calendar-day anchor also place it in All Deliverables on that date.
+  Assignment 2 is due November 2, 2026 at 11:59 PM, with matching display date and
+  calendar-day anchor used by All Deliverables and the timeline helper.
 - Task-date display contract -> produced by `task-date.ts`; consumed by every Tasks table to render
   stored 24-hour times in 12-hour local-time notation. It does not alter task ordering, calendar
   anchors, or browser-persisted completion state.

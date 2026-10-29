@@ -75,7 +75,7 @@ const assessmentTasks: readonly CourseTask[] = [
   { id: "lab-3", type: "Lab", name: "Lab 3", date: "Thu, Nov 5 · 23:59", sortOrder: 202011052359 },
   { id: "lab-4", type: "Lab", name: "Lab 4", date: "Thu, Nov 19 · 23:59", sortOrder: 202011192359 },
   { id: "lab-5", type: "Lab", name: "Lab 5", date: "Thu, Dec 3 · 23:59", sortOrder: 202012032359 },
-  { id: "midterm-1", type: "Midterm", name: "Midterm 1", date: "Fri, Oct 30 · 18:30", sortOrder: 202010301830 },
+  { id: "midterm-1", type: "Midterm", name: "Midterm 1", date: "Mon, Nov 2 · 17:30", sortOrder: 202011021730 },
   { id: "midterm-2", type: "Midterm", name: "Midterm 2", date: "Thu, Nov 26 · 18:30", sortOrder: 202011261830 },
   { id: "final-exam", type: "Exam", name: "Final Exam", date: "TBD", sortOrder: 999999999999 },
 ];

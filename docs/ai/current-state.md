@@ -2,6 +2,13 @@
 
 _Verified: 2026-10-01 (All Deliverables published and checked live)_
 
+Local update verified 2026-10-29: 3BB4 Assignment 2 is due November 2, 2026 at
+11:59 PM; 2Z03 Midterm 1 is scheduled for Monday, November 2, 2026 at
+5:30 PM, following the user's correction. Shared data updates both course Tasks views and All Deliverables, including
+chronological ordering and timeline anchors. All 77 tests and the static production build
+pass. These changes are not yet published;
+see [task evidence](tasks/2026-10-29-assignment-and-midterm-dates.md).
+
 Published update verified 2026-10-05: 3BB4 Assignment 1 is due October 6, 2026, with
 calendar anchor `20261006`. Both 3BB4 Tasks and All Deliverables consume this date.
 The 77-test suite and GitHub Pages static build pass. Workflow

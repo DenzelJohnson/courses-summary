@@ -23,6 +23,10 @@ describe("courseTasks", () => {
     expect(courseTasks.find((task) => task.id === "assignment-3")).toMatchObject({
       date: "Mon, Oct 26 · 08:00",
     });
+    expect(courseTasks.find((task) => task.id === "midterm-1")).toMatchObject({
+      date: "Mon, Nov 2 · 17:30",
+      calendarDate: 20261102,
+    });
     expect(courseTasks.find((task) => task.id === "midterm-2")).toMatchObject({
       date: "Thu, Nov 26 · 18:30",
     });

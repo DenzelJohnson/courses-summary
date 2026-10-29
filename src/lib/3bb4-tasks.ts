@@ -6,9 +6,9 @@ const assignments: readonly CourseTask[] = [1, 2, 3].map((number) => ({
   id: `assignment-${number}`,
   type: "Assignment",
   name: `Assignment ${number}`,
-  date: number === 1 ? "Tue, Oct 6" : "TBD",
+  date: number === 1 ? "Tue, Oct 6" : number === 2 ? "Mon, Nov 2 · 23:59" : "TBD",
   sortOrder: number,
-  calendarDate: number === 1 ? 20261006 : null,
+  calendarDate: number === 1 ? 20261006 : number === 2 ? 20261102 : null,
 }));
 
 const lectures: readonly CourseTask[] = Array.from({ length: 18 }, (_, index) => ({
