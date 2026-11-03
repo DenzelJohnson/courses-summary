@@ -3,7 +3,7 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-10-29 by Codex_
+_Last updated: 2026-11-03 by Codex_
 
 ## 1. Overview
 
@@ -125,6 +125,8 @@ other project automation or scheduled task is known.
   display date and calendar-day anchor also place it in All Deliverables on that date.
   Assignment 2 is due November 2, 2026 at 11:59 PM, with matching display date and
   calendar-day anchor used by All Deliverables and the timeline helper.
+  Assignment 3 is due December 9, 2026 at 11:59 PM via Avenue, with calendar anchor
+  `20261209` used by All Deliverables and the timeline helper.
 - Task-date display contract -> produced by `task-date.ts`; consumed by every Tasks table to render
   stored 24-hour times in 12-hour local-time notation. It does not alter task ordering, calendar
   anchors, or browser-persisted completion state.
