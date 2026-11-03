@@ -1,6 +1,6 @@
 # Task: Set and publish 3BB4 Assignment 3 due date
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-11-03
 - Updated: 2026-11-03
 - Worktree: repository root
@@ -20,7 +20,7 @@ The user's assignment screenshot states Assignment 3 is due Wednesday, December 
 - Update existing task-data assertions and the combined table's remaining undated-row count.
 - No automation directly writes the catalog. GitHub Pages publishes the static export.
 - Changed files: `src/lib/3bb4-tasks.ts`, its test, `src/lib/all-deliverables.test.ts`,
-  `scope.md`, this task, and the active registry.
+  `scope.md`, `docs/ai/current-state.md`, this task, and the active registry.
 - Preserve unrelated local INDEX, scope, and coursework-task changes when staging.
 
 ## Evidence
@@ -33,7 +33,13 @@ The user's assignment screenshot states Assignment 3 is due Wednesday, December 
 
 ## External State and Next Action
 
-Publication authorized; no external writes yet. Next: verify tests and build, commit only
-this task's changes, push, then verify the Pages workflow and both live views.
+Published commit `9223c8b` to `origin/master`. GitHub Pages workflow
+[41708903181](https://github.com/DenzelJohnson/courses-summary/actions/runs/41708903181)
+passed its build and deployment jobs on 2026-11-03.
+
+Live browser verification confirmed both 3BB4 Tasks and All Deliverables show Assignment 3
+as `Wed, Dec 9 · 11:59 PM via Avenue`. No known issues or remaining deadline work.
+Unrelated local coursework and INDEX/scope changes remain uncommitted.
+Next action: commit and push the deployment-evidence checkpoint.
 
 Information only in chat: none
