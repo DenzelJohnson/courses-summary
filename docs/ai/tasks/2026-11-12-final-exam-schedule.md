@@ -1,6 +1,6 @@
 # Task: Publish Fall 2026 final exam schedule
 
-- Status: ACTIVE
+- Status: COMPLETE
 - Opened: 2026-11-12
 - Worktree: repository root
 - Branch: master
@@ -28,7 +28,11 @@ dates were missing and the 2DA4 and combined row counts were short.
 - Full suite: 25 files, 77 tests passing.
 - Static production build with GitHub Pages base path and `git diff --check` passed.
 
-Next: commit and push, then check Pages and the live exam rows. Publication authorized
-by the user; no external writes yet.
+Pushed commit `1bfb592` to `origin/master`. GitHub Pages workflow
+[43265937730](https://github.com/DenzelJohnson/courses-summary/actions/runs/43265937730)
+passed its build and deploy jobs on 2026-11-12. Live All Deliverables displayed all
+three final exam rows in chronological order with the requested times.
+Unrelated local coursework and index/scope edits remain uncommitted. No remaining
+schedule work; save this deployment checkpoint.
 
 Information only in chat: none

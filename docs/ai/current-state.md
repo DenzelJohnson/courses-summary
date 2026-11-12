@@ -2,6 +2,13 @@
 
 _Verified: 2026-10-01 (All Deliverables published and checked live)_
 
+Published update verified 2026-11-12: All Deliverables shows the three finals in
+chronological order: 3BB4 December 11 at 4:00 PM, 2DA4 December 14 at 7:30 PM,
+and 2Z03 December 21 at 12:30 PM. Workflow
+[43265937730](https://github.com/DenzelJohnson/courses-summary/actions/runs/43265937730)
+deployed commit `1bfb592` successfully. All 77 tests and the static build passed;
+see [task evidence](tasks/2026-11-12-final-exam-schedule.md).
+
 Published update verified 2026-11-03: 3BB4 Assignment 3 is due Wednesday, December 9,
 2026 at 11:59 PM via Avenue. Both 3BB4 Tasks and All Deliverables were checked live.
 All 77 tests and the static production build pass. Workflow
