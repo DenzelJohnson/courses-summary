@@ -123,6 +123,14 @@ const tasks: readonly CourseTask[] = [
     sortOrder: 202611300000,
     calendarDate: 20261130,
   },
+  {
+    id: "final-exam",
+    type: "Exam",
+    name: "Final Exam",
+    date: "Mon, Dec 14 · 19:30",
+    sortOrder: 202612141930,
+    calendarDate: 20261214,
+  },
 ];
 
 const weekdayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];

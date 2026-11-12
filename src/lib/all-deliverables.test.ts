@@ -3,9 +3,9 @@ import { allDeliverables } from "./all-deliverables";
 
 describe("allDeliverables", () => {
   it("includes every graded task from the three courses and excludes lectures and tutorials", () => {
-    expect(allDeliverables).toHaveLength(34);
+    expect(allDeliverables).toHaveLength(35);
     expect(allDeliverables.filter(({ course }) => course === "2Z03")).toHaveLength(14);
-    expect(allDeliverables.filter(({ course }) => course === "2DA4")).toHaveLength(15);
+    expect(allDeliverables.filter(({ course }) => course === "2DA4")).toHaveLength(16);
     expect(allDeliverables.filter(({ course }) => course === "3BB4")).toHaveLength(5);
     expect(allDeliverables.every(({ task }) =>
       ["Assignment", "Lab", "Midterm", "Exam"].includes(task.type),
@@ -21,7 +21,7 @@ describe("allDeliverables", () => {
     ]);
   });
 
-  it("orders known Fall 2026 dates across courses and leaves undated work last", () => {
+  it("orders Fall 2026 deliverables across courses, ending with the three finals", () => {
     expect(allDeliverables.slice(0, 3).map(({ course, task }) => `${course}:${task.name}`)).toEqual([
       "2DA4:Lab 1 - Part 1",
       "2Z03:Assignment 1",
@@ -31,8 +31,11 @@ describe("allDeliverables", () => {
     expect(dated.map(({ task }) => task.calendarDate)).toEqual(
       [...dated.map(({ task }) => task.calendarDate)].sort((left, right) => left! - right!),
     );
-    expect(allDeliverables.slice(-2).every(({ task }) => task.calendarDate == null)).toBe(true);
-    expect(new Set(allDeliverables.map(({ key }) => key)).size).toBe(34);
+    expect(dated).toHaveLength(allDeliverables.length);
+    expect(allDeliverables.slice(-3).map(({ key }) => key)).toEqual([
+      "3BB4:final-exam", "2DA4:final-exam", "2Z03:final-exam",
+    ]);
+    expect(new Set(allDeliverables.map(({ key }) => key)).size).toBe(35);
   });
 
   it("orders two deliverables on the same day by their start or due time", () => {

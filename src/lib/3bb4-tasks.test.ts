@@ -8,7 +8,10 @@ describe("threeBB4Tasks", () => {
   it("contains three assignments, a midterm, final, eighteen lectures, and twelve tutorials", () => {
     expect(threeBB4Tasks).toHaveLength(35);
     expect(threeBB4Tasks.filter((task) => task.type === "Lecture")).toHaveLength(30);
-    expect(threeBB4Tasks.filter((task) => task.date === "TBD")).toHaveLength(19);
+    expect(threeBB4Tasks.filter((task) => task.date === "TBD")).toHaveLength(18);
+    expect(threeBB4Tasks.find((task) => task.id === "final-exam")).toMatchObject({
+      type: "Exam", date: "Fri, Dec 11 · 16:00", calendarDate: 20261211,
+    });
     expect(threeBB4Tasks.find((task) => task.id === "midterm")).toMatchObject({
       type: "Midterm",
       name: "Midterm",

@@ -10,10 +10,10 @@ describe("AllDeliverablesTable", () => {
   beforeEach(() => localStorage.clear());
   afterEach(() => vi.useRealTimers());
 
-  it("renders one five-column table with all 34 graded tasks", () => {
+  it("renders one five-column table with all 35 graded tasks", () => {
     render(<AllDeliverablesTable />);
 
-    expect(screen.getAllByRole("row")).toHaveLength(35);
+    expect(screen.getAllByRole("row")).toHaveLength(36);
     expect(screen.getAllByRole("columnheader").map((cell) => cell.textContent)).toEqual([
       "Course", "Type", "Name", "Date", "Checklist",
     ]);

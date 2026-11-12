@@ -6,10 +6,10 @@ import { TwoDA4TasksTable } from "./2da4-tasks-table";
 describe("TwoDA4TasksTable", () => {
   beforeEach(() => localStorage.clear());
 
-  it("renders 37 lectures and fifteen 2DA4 assessments, and persists checklist completion", async () => {
+  it("renders 37 lectures and sixteen 2DA4 assessments, and persists checklist completion", async () => {
     render(<TwoDA4TasksTable />);
 
-    expect(screen.getAllByRole("row")).toHaveLength(53);
+    expect(screen.getAllByRole("row")).toHaveLength(54);
     expect(screen.getByText("Lecture 37")).toBeInTheDocument();
     expect(screen.getByText("Midterm 1")).toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Mark Assignment 4 completed" }));

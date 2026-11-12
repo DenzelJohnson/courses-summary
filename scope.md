@@ -3,7 +3,7 @@
 > Single source of truth for this project's moving parts and dependencies. Update this file in
 > the same change that alters any item below. Mark unconfirmed dependencies `UNVERIFIED`.
 
-_Last updated: 2026-11-03 by Codex_
+_Last updated: 2026-11-12 by Codex_
 
 ## 1. Overview
 
@@ -146,6 +146,10 @@ other project automation or scheduled task is known.
   `all-deliverables.ts`, its table, and tests. Assessment types are included only where the course
   grading schemes assign weight. Known dates sort chronologically using Fall 2026 calendar dates;
   undated rows follow. Composite course/task IDs are used only for combined-view row identity.
+- Fall 2026 finals -> the course catalogs provide 3BB4 on December 11 at 4:00 PM,
+  2DA4 on December 14 at 7:30 PM, and 2Z03 on December 21 at 12:30 PM.
+  The course Tasks tables, All Deliverables, and the timeline helper use their calendar dates.
+  2DA4 adds a checkable final row; existing exam IDs and completion keys stay compatible.
 - Shared completion-hook signature -> produced by `use-persistent-task-completions.ts`; consumed
   by the 2Z03, 2DA4, and 3BB4 Tasks tables, All Deliverables, and its tests. Each caller supplies
   its task IDs and a course-specific storage key, so their saved completion maps remain isolated.

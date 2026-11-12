@@ -5,7 +5,7 @@ describe("twoDA4Tasks", () => {
   it("adds 37 Monday, Wednesday, Friday lectures around the Fall Break", () => {
     const lectures = twoDA4Tasks.filter((task) => task.type === "Lecture");
 
-    expect(twoDA4Tasks).toHaveLength(52);
+    expect(twoDA4Tasks).toHaveLength(53);
     expect(lectures.map((task) => `${task.name} · ${task.date}`)).toEqual([
       "Lecture 1 · Wed, Sep 9",
       "Lecture 2 · Fri, Sep 11",
@@ -53,10 +53,10 @@ describe("twoDA4Tasks", () => {
     ).toBe(false);
   });
 
-  it("contains fifteen assessments with separate rows for both parts of every lab", () => {
+  it("contains sixteen assessments with separate rows for both parts of every lab", () => {
     const assessments = twoDA4Tasks.filter((task) => task.type !== "Lecture");
 
-    expect(assessments).toHaveLength(15);
+    expect(assessments).toHaveLength(16);
     expect(assessments.map((task) => task.name)).toEqual([
       "Lab 1 - Part 1",
       "Lab 1 - Part 2",
@@ -73,6 +73,7 @@ describe("twoDA4Tasks", () => {
       "Lab 5 - Part 1",
       "Assignment 4",
       "Lab 5 - Part 2",
+      "Final Exam",
     ]);
     expect(twoDA4Tasks.find((task) => task.id === "assignment-1")).toMatchObject({
       type: "Assignment",
@@ -80,6 +81,9 @@ describe("twoDA4Tasks", () => {
     });
     expect(twoDA4Tasks.find((task) => task.id === "assignment-3")).toMatchObject({
       date: "Mon, Nov 16 · extra week due to Midterm",
+    });
+    expect(twoDA4Tasks.at(-1)).toMatchObject({
+      id: "final-exam", type: "Exam", date: "Mon, Dec 14 · 19:30", calendarDate: 20261214,
     });
     expect(
       assessments

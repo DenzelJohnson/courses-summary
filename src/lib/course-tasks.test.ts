@@ -19,7 +19,7 @@ describe("courseTasks", () => {
     });
   });
 
-  it("contains the supplied assessment dates and intentionally undated final", () => {
+  it("contains the supplied assessment dates including the final", () => {
     expect(courseTasks.find((task) => task.id === "assignment-3")).toMatchObject({
       date: "Mon, Oct 26 · 08:00",
     });
@@ -30,9 +30,11 @@ describe("courseTasks", () => {
     expect(courseTasks.find((task) => task.id === "midterm-2")).toMatchObject({
       date: "Thu, Nov 26 · 18:30",
     });
-    expect(courseTasks.at(-1)).toMatchObject({ type: "Exam", name: "Final Exam", date: "TBD" });
+    expect(courseTasks.at(-1)).toMatchObject({
+      id: "final-exam", type: "Exam", name: "Final Exam",
+      date: "Mon, Dec 21 · 12:30", calendarDate: 20261221,
+    });
     expect(courseTasks.find((task) => task.id === "lecture-1")?.calendarDate).toBe(20260910);
-    expect(courseTasks.find((task) => task.id === "final-exam")?.calendarDate).toBeNull();
     expect(TASK_COMPLETION_STORAGE_KEY).toBe("courses-summary:2z03:tasks:v1");
   });
 });

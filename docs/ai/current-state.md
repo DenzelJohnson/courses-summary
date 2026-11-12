@@ -38,9 +38,9 @@ and verified live.
 - 2Z03 Tasks: 51-row chronological schedule with a saved completion checklist.
 - 2DA4 Syllabus: saved weighted grade calculator with five assignments at 2% each, five labs at
   2% each, a 30% Midterm 1, and a 50% Final Exam.
-- 2DA4 Tasks: saved 52-row chronological schedule covering 37 Monday/Wednesday/Friday lectures,
-  ten separate lab-part rows, Assignments 1–4, and Midterm 1. It skips the October 12–18 Fall Break
-  and ends on Wednesday, December 9. Each attended lab week has its own `Lab N - Part 1` or
+- 2DA4 Tasks: saved 53-row chronological schedule covering 37 Monday/Wednesday/Friday lectures,
+  ten separate lab-part rows, Assignments 1–4, Midterm 1, and the final exam. Lectures skip the
+  October 12–18 Fall Break and end on Wednesday, December 9. Each attended lab week has its own `Lab N - Part 1` or
   `Lab N - Part 2` checklist row and its own timeline anchor. Historical `lab-N` completion state
   remains attached to Part 1; each new Part 2 starts incomplete.
 - 3BB4 Syllabus: saved grade calculator with three 10% assignments, a 20% midterm, a 50% final,
@@ -48,7 +48,7 @@ and verified live.
 - 3BB4 Tasks: saved 35-row checklist with three assignments, a midterm, final exam, Lectures 1–18,
   and Tutorials 1–12 on Tuesdays from September 15 through December 8, excluding Fall Break.
   Unknown dates are `TBD`.
-- All Deliverables: one chronological table of the 34 existing graded tasks across all three
+- All Deliverables: one chronological table of the 35 graded tasks across all three
   courses, with Course, Type, Name, Date, and Checklist columns. It includes both parts of the
   2DA4 graded labs, excludes lectures and unweighted 3BB4 tutorials, and shares each course's
   existing saved checklist state. Undated tasks follow dated tasks.
